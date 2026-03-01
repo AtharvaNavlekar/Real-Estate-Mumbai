@@ -10,7 +10,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 const neighborhoodsData = {
     'bandra-west': {
         name: 'Bandra West',
-        image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1200&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop',
         description: 'The "Queen of Suburbs," Bandra West is Mumbai\'s most eclectic and sought-after neighborhood, blending Portuguese heritage with ultra-luxury modern developments.',
         avgPrice: '₹ 85,000 / sq.ft',
         rentYield: '3.1%',
@@ -26,7 +26,7 @@ const neighborhoodsData = {
     },
     'bkc': {
         name: 'BKC',
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop',
         description: 'Bandra Kurla Complex (BKC) is the financial nerve center of Mumbai, commanding some of the highest commercial and residential premiums in the country.',
         avgPrice: '₹ 75,000 / sq.ft',
         rentYield: '4.5%',

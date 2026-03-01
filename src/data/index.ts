@@ -19,7 +19,7 @@ export const properties: Property[] = [
     },
     {
         id: 2,
-        image: 'https://images.unsplash.com/photo-1600607687931-ceeb66d18f50?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
         price: '₹ 8.5 Cr',
         title: '3 BHK Premium Residence',
         location: 'BKC, Mumbai',
@@ -43,7 +43,7 @@ export const properties: Property[] = [
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
         price: '₹ 2.5 L / mo',
         title: '2 BHK Modern Flat',
         location: 'Powai, Mumbai',
@@ -55,7 +55,7 @@ export const properties: Property[] = [
     },
     {
         id: 5,
-        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
         price: '₹ 4.5 Cr',
         title: '3 BHK Sea-View Apartment',
         location: 'BKC, Mumbai',
@@ -67,7 +67,7 @@ export const properties: Property[] = [
     },
     {
         id: 6,
-        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
         price: '₹ 3.5 L / mo',
         title: 'Modern 3BHK with Pet Park',
         location: 'BKC Annexe, Mumbai',
@@ -79,7 +79,7 @@ export const properties: Property[] = [
     },
     {
         id: 7,
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
         price: '₹ 4.9 Cr',
         title: 'Luxury 3BHK Penthouse',
         location: 'BKC, Mumbai',
@@ -91,7 +91,7 @@ export const properties: Property[] = [
     },
     {
         id: 8,
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
         price: '₹ 15.5 Cr',
         title: 'Premium Office Space',
         location: 'BKC, Mumbai',
@@ -103,7 +103,7 @@ export const properties: Property[] = [
     },
     {
         id: 9,
-        image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
         price: '₹ 6.2 Cr',
         title: '3 BHK Heritage Apartment',
         location: 'South Mumbai',
@@ -115,7 +115,7 @@ export const properties: Property[] = [
     },
     {
         id: 10,
-        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
         price: '₹ 1.8 L / mo',
         title: '1 BHK Studio Flat',
         location: 'Andheri West, Mumbai',
@@ -131,7 +131,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'bandra-west',
         name: 'Bandra West',
-        image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800',
         avgPrice: '₹ 45,000/sqft',
         appreciation: '+12% YoY',
         description: 'The Queen of Suburbs — vibrant, cosmopolitan, and home to Bollywood celebrities.',
@@ -140,7 +140,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'bkc',
         name: 'BKC',
-        image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800',
         avgPrice: '₹ 38,000/sqft',
         appreciation: '+8% YoY',
         description: 'Mumbai\'s premier commercial and residential hub with world-class infrastructure.',
@@ -149,7 +149,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'worli',
         name: 'Worli',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800',
         avgPrice: '₹ 52,000/sqft',
         appreciation: '+15% YoY',
         description: 'Luxury sea-facing residences with iconic Bandra-Worli Sea Link views.',
@@ -158,7 +158,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'powai',
         name: 'Powai',
-        image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800',
         avgPrice: '₹ 22,000/sqft',
         appreciation: '+9% YoY',
         description: 'Knowledge hub with IIT Mumbai, tech parks, and lakeside living.',
@@ -167,7 +167,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'andheri',
         name: 'Andheri',
-        image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800',
         avgPrice: '₹ 18,000/sqft',
         appreciation: '+7% YoY',
         description: 'Largest suburb with excellent connectivity and vibrant lifestyle options.',
@@ -176,7 +176,7 @@ export const neighborhoods: Neighborhood[] = [
     {
         id: 'south-mumbai',
         name: 'South Mumbai',
-        image: 'https://images.unsplash.com/photo-1549969476-db0f22d7c07c?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800',
         avgPrice: '₹ 65,000/sqft',
         appreciation: '+5% YoY',
         description: 'The heritage heart of Mumbai — Malabar Hill, Marine Drive, Nariman Point.',

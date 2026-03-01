@@ -11,14 +11,14 @@ import {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const allProperties = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop', price: '₹ 12.5 Cr', title: '4 BHK Luxury Apartment', location: 'Bandra West, Mumbai', beds: 4, baths: 4, sqft: 2500, type: 'Apartment', intent: 'buy', isFeatured: true },
-  { id: 2, image: 'https://images.unsplash.com/photo-1600607687931-ceeb66d18f50?q=80&w=800&auto=format&fit=crop', price: '₹ 8.5 Cr', title: '3 BHK Premium Residence', location: 'BKC, Mumbai', beds: 3, baths: 3, sqft: 1800, type: 'Apartment', intent: 'buy', isFeatured: true },
-  { id: 3, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 35.0 Cr', title: '5 BHK Sea-Facing Penthouse', location: 'Worli, Mumbai', beds: 5, baths: 6, sqft: 4500, type: 'Penthouse', intent: 'buy', isFeatured: true },
-  { id: 4, image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=800&auto=format&fit=crop', price: '₹ 2.5 L / mo', title: '2 BHK Modern Flat', location: 'Powai, Mumbai', beds: 2, baths: 2, sqft: 1100, type: 'Apartment', intent: 'rent' },
-  { id: 101, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop', price: '₹ 4.5 Cr', title: '3 BHK Sea-View Apartment', location: 'BKC, Mumbai', beds: 3, baths: 3, sqft: 1650, type: 'Apartment', intent: 'buy', isFeatured: true },
-  { id: 102, image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop', price: '₹ 3.5 L / mo', title: 'Modern 3BHK with Pet Park', location: 'BKC Annexe, Mumbai', beds: 3, baths: 2, sqft: 1400, type: 'Apartment', intent: 'rent' },
-  { id: 103, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 4.9 Cr', title: 'Luxury 3BHK Penthouse', location: 'BKC, Mumbai', beds: 3, baths: 4, sqft: 2100, type: 'Penthouse', intent: 'buy', isFeatured: true },
-  { id: 104, image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop', price: '₹ 15.5 Cr', title: 'Premium Office Space', location: 'BKC, Mumbai', beds: 0, baths: 2, sqft: 3500, type: 'Commercial', intent: 'commercial' },
+  { id: 1, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop', price: '₹ 12.5 Cr', title: '4 BHK Luxury Apartment', location: 'Bandra West, Mumbai', beds: 4, baths: 4, sqft: 2500, type: 'Apartment', intent: 'buy', isFeatured: true },
+  { id: 2, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 8.5 Cr', title: '3 BHK Premium Residence', location: 'BKC, Mumbai', beds: 3, baths: 3, sqft: 1800, type: 'Apartment', intent: 'buy', isFeatured: true },
+  { id: 3, image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop', price: '₹ 35.0 Cr', title: '5 BHK Sea-Facing Penthouse', location: 'Worli, Mumbai', beds: 5, baths: 6, sqft: 4500, type: 'Penthouse', intent: 'buy', isFeatured: true },
+  { id: 4, image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop', price: '₹ 2.5 L / mo', title: '2 BHK Modern Flat', location: 'Powai, Mumbai', beds: 2, baths: 2, sqft: 1100, type: 'Apartment', intent: 'rent' },
+  { id: 101, image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop', price: '₹ 4.5 Cr', title: '3 BHK Sea-View Apartment', location: 'BKC, Mumbai', beds: 3, baths: 3, sqft: 1650, type: 'Apartment', intent: 'buy', isFeatured: true },
+  { id: 102, image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop', price: '₹ 3.5 L / mo', title: 'Modern 3BHK with Pet Park', location: 'BKC Annexe, Mumbai', beds: 3, baths: 2, sqft: 1400, type: 'Apartment', intent: 'rent' },
+  { id: 103, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop', price: '₹ 4.9 Cr', title: 'Luxury 3BHK Penthouse', location: 'BKC, Mumbai', beds: 3, baths: 4, sqft: 2100, type: 'Penthouse', intent: 'buy', isFeatured: true },
+  { id: 104, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 15.5 Cr', title: 'Premium Office Space', location: 'BKC, Mumbai', beds: 0, baths: 2, sqft: 3500, type: 'Commercial', intent: 'commercial' },
 ];
 
 const intentTabs = [

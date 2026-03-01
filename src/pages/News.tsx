@@ -9,16 +9,16 @@ const featuredArticle = {
     author: "Research Desk",
     date: "March 15, 2025",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
 };
 
 const articles = [
-    { id: 1, title: 'Impact of New Coastal Road on Worli Real Estate', category: 'Infrastructure', date: 'Mar 12, 2025', image: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&q=80' },
-    { id: 2, title: 'RERA Updates: What the New Escrow Rules Mean for Buyers', category: 'Regulatory', date: 'Mar 10, 2025', image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80' },
-    { id: 3, title: 'Commercial Leasing Trends: The Return to the Office', category: 'Commercial', date: 'Mar 08, 2025', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80' },
-    { id: 4, title: 'Top 5 Emerging Micro-Markets in MMR', category: 'Market Trends', date: 'Mar 05, 2025', image: 'https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&q=80' },
-    { id: 5, title: 'Expat Housing Allowances Adjusted for 2025', category: 'Global Desk', date: 'Mar 01, 2025', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80' },
-    { id: 6, title: 'The Rise of Branded Residences in South Mumbai', category: 'Luxury', date: 'Feb 28, 2025', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80' },
+    { id: 1, title: 'Impact of New Coastal Road on Worli Real Estate', category: 'Infrastructure', date: 'Mar 12, 2025', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80' },
+    { id: 2, title: 'RERA Updates: What the New Escrow Rules Mean for Buyers', category: 'Regulatory', date: 'Mar 10, 2025', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80' },
+    { id: 3, title: 'Commercial Leasing Trends: The Return to the Office', category: 'Commercial', date: 'Mar 08, 2025', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80' },
+    { id: 4, title: 'Top 5 Emerging Micro-Markets in MMR', category: 'Market Trends', date: 'Mar 05, 2025', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80' },
+    { id: 5, title: 'Expat Housing Allowances Adjusted for 2025', category: 'Global Desk', date: 'Mar 01, 2025', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80' },
+    { id: 6, title: 'The Rise of Branded Residences in South Mumbai', category: 'Luxury', date: 'Feb 28, 2025', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80' },
 ];
 
 export default function News() {

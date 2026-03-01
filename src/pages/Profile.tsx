@@ -36,9 +36,9 @@ export default function Profile() {
     };
 
     const properties = [
-        { img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", price: "12.5 Cr", title: "Signia High Luxurious Sky Villa", loc: "South Mumbai", status: "Active" },
-        { img: "https://images.unsplash.com/photo-1600607687931-ceeb66d18f50?q=80&w=800&auto=format&fit=crop", price: "8.5 Cr", title: "3 BHK Premium Residence", loc: "BKC, Mumbai", status: "Under Offer" },
-        { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop", price: "25.0 Cr", title: "Sea Facing Penthouse", loc: "Worli, Mumbai", status: "Draft" }
+        { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop", price: "12.5 Cr", title: "Signia High Luxurious Sky Villa", loc: "South Mumbai", status: "Active" },
+        { img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop", price: "8.5 Cr", title: "3 BHK Premium Residence", loc: "BKC, Mumbai", status: "Under Offer" },
+        { img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop", price: "25.0 Cr", title: "Sea Facing Penthouse", loc: "Worli, Mumbai", status: "Draft" }
     ];
 
     return (
@@ -47,7 +47,7 @@ export default function Profile() {
             {/* Elegant Cover Image */}
             <div className="h-[240px] md:h-[320px] w-full relative">
                 <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2500&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2500&auto=format&fit=crop"
                     alt="Cover"
                     className="w-full h-full object-cover"
                 />

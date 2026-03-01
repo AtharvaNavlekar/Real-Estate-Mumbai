@@ -10,7 +10,7 @@ export default function Home() {
   const featuredProperties = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
       price: '₹ 12.5 Cr',
       title: '4 BHK Luxury Apartment',
       location: 'Bandra West, Mumbai',
@@ -22,7 +22,7 @@ export default function Home() {
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1600607687931-ceeb66d18f50?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
       price: '₹ 8.5 Cr',
       title: '3 BHK Premium Residence',
       location: 'BKC, Mumbai',
@@ -34,7 +34,7 @@ export default function Home() {
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
       price: '₹ 35.0 Cr',
       title: '5 BHK Sea-Facing Penthouse',
       location: 'Worli, Mumbai',
@@ -46,7 +46,7 @@ export default function Home() {
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
       price: '₹ 2.8 Cr',
       title: '2 BHK Modern Flat',
       location: 'Powai, Mumbai',
@@ -60,28 +60,28 @@ export default function Home() {
   const neighborhoods = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
       name: 'Bandra West',
       propertyCount: 450,
       description: 'The Queen of Suburbs, known for its vibrant culture and premium sea-facing apartments.'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
       name: 'BKC',
       propertyCount: 320,
       description: 'Mumbai\'s premier business district, offering ultra-luxury residences and commercial spaces.'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
       name: 'Worli',
       propertyCount: 280,
       description: 'Iconic skyline views and high-end developments define this prestigious South Mumbai locality.'
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
       name: 'Powai',
       propertyCount: 510,
       description: 'A perfect blend of nature and modern infrastructure, popular among tech professionals.'
@@ -94,7 +94,7 @@ export default function Home() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2000&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop"
             alt="Mumbai Luxury Real Estate"
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
@@ -284,7 +284,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-4 bg-v-black rounded-[2.5rem] transform rotate-3"></div>
             <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
               alt="Luxury Real Estate Agent"
               className="relative rounded-3xl shadow-2xl w-full object-cover aspect-[4/5] border border-white/10"
               referrerPolicy="no-referrer"
@@ -318,21 +318,21 @@ export default function Home() {
             {
               name: "Ananya Desai",
               role: "Tech Executive",
-              image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
+              image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=200&auto=format&fit=crop",
               text: "The data-driven approach changed everything for us. We knew exactly what the fair price was before even stepping into the property.",
               property: "Bought in BKC"
             },
             {
               name: "Vikram Singhania",
               role: "NRI Investor",
-              image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
+              image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=200&auto=format&fit=crop",
               text: "Managing investments from Dubai is tough, but their verified listings and remote walkthroughs made the entire process completely frictionless.",
               property: "Invested in Worli"
             },
             {
               name: "Pooja & Rahul",
               role: "First-time Buyers",
-              image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+              image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=200&auto=format&fit=crop",
               text: "From property discovery to getting our RERA documents verified, our dedicated concierge held our hand through every single administrative hurdle.",
               property: "Bought in Powai"
             },

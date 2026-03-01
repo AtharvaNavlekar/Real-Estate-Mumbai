@@ -43,7 +43,7 @@ export default function OwnerPortal() {
 
                         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative hidden lg:block">
                             <div className="relative z-10 bg-white/5 border border-white/20 p-4 rounded-[2.5rem] backdrop-blur-3xl shadow-2xl">
-                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" alt="Luxury Real Estate" className="rounded-[2rem] object-cover h-[500px] w-full" />
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="Luxury Real Estate" className="rounded-[2rem] object-cover h-[500px] w-full" />
 
                                 {/* Floating Badges */}
                                 <div className="absolute top-12 -left-12 bg-white text-v-black p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce hover:pause">
@@ -121,7 +121,7 @@ export default function OwnerPortal() {
                     </div>
                     <div className="w-full lg:w-1/2 h-[400px] lg:h-auto lg:self-stretch relative order-1 lg:order-2">
                         <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-20 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1623298317883-6b70254731ab?q=80&w=1000&auto=format&fit=crop" alt="Marketing" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" alt="Marketing" className="w-full h-full object-cover" />
                     </div>
                 </motion.div>
 
@@ -129,7 +129,7 @@ export default function OwnerPortal() {
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }} className="bg-v-black rounded-[3rem] shadow-2xl border border-slate-800 overflow-hidden flex flex-col lg:flex-row items-center gap-0">
                     <div className="w-full lg:w-1/2 h-[400px] lg:h-auto lg:self-stretch relative">
                         <div className="absolute inset-0 bg-emerald-600 mix-blend-multiply opacity-20 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop" alt="Management" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Management" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1 p-12 lg:p-20 text-white">
                         <div className="inline-flex items-center justify-center w-14 h-14 bg-white/10 text-emerald-400 rounded-2xl mb-8 border border-white/20 backdrop-blur-md">

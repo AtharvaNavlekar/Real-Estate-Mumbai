@@ -40,19 +40,19 @@ const team = [
     {
         name: 'Vikram Navlekar',
         title: 'CEO & Managing Director',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=400&auto=format&fit=crop',
         bio: "30+ years shaping Mumbai's luxury corridor.",
     },
     {
         name: 'Priya Mehta',
         title: 'Head of Luxury Sales',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop',
         bio: 'Closed over ₹2,200 Cr in premium transactions.',
     },
     {
         name: 'Arjun Sharma',
         title: 'Director — Commercial',
-        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=400&auto=format&fit=crop',
         bio: 'Specialist in Grade-A BKC commercial mandates.',
     },
 ];
@@ -73,7 +73,7 @@ export default function About() {
             <section className="relative bg-v-black text-white pt-40 pb-32 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=2000&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop"
                         alt="Mumbai skyline"
                         className="w-full h-full object-cover opacity-20"
                         referrerPolicy="no-referrer"

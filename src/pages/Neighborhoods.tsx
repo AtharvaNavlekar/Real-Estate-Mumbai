@@ -7,7 +7,7 @@ export default function Neighborhoods() {
     {
       id: 1,
       slug: 'bandra-west',
-      image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
       name: 'Bandra West',
       propertyCount: 450,
       description: 'The Queen of Suburbs, known for its vibrant culture and premium sea-facing apartments.',
@@ -18,7 +18,7 @@ export default function Neighborhoods() {
     {
       id: 2,
       slug: 'bkc',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
       name: 'BKC',
       propertyCount: 320,
       description: 'Mumbai\'s premier business district, offering ultra-luxury residences and commercial spaces.',
@@ -28,7 +28,7 @@ export default function Neighborhoods() {
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
       name: 'Worli',
       propertyCount: 280,
       description: 'Iconic skyline views and high-end developments define this prestigious South Mumbai locality.',
@@ -38,7 +38,7 @@ export default function Neighborhoods() {
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
       name: 'Powai',
       propertyCount: 510,
       description: 'A perfect blend of nature and modern infrastructure, popular among tech professionals.',
@@ -48,7 +48,7 @@ export default function Neighborhoods() {
     },
     {
       id: 5,
-      image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
       name: 'Juhu',
       propertyCount: 180,
       description: 'Exclusive beachfront living preferred by Bollywood celebrities and industrialists.',
@@ -58,7 +58,7 @@ export default function Neighborhoods() {
     },
     {
       id: 6,
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
       name: 'Andheri West',
       propertyCount: 650,
       description: 'A bustling hub of entertainment, dining, and diverse residential options.',

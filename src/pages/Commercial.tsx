@@ -5,12 +5,12 @@ import { useSearchParams } from 'react-router-dom';
 import PropertyCard from '../components/PropertyCard';
 
 const commercialInventory = [
-    { id: 1, title: 'Premium Office Space in BKC', loc: 'Bandra Kurla Complex', sqft: 5000, price: '₹4.5L/mo', type: 'Office', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80', status: 'Available' },
-    { id: 2, title: 'High-Street Retail Front', loc: 'Linking Road, Bandra', sqft: 1200, price: '₹3L/mo', type: 'Retail', image: 'https://images.unsplash.com/photo-1582005450091-888915ae5b80?auto=format&fit=crop&q=80', status: 'Leased' },
-    { id: 3, title: 'IT Park Floor Plate', loc: 'Powai', sqft: 15000, price: '₹12L/mo', type: 'IT/ITES', image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80', status: 'Available' },
-    { id: 4, title: 'Boutique Clinic Space', loc: 'Juhu', sqft: 800, price: '₹1.5L/mo', type: 'Medical', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80', status: 'Available' },
-    { id: 5, title: 'Corporate HQ Building', loc: 'Lower Parel', sqft: 25000, price: '₹25L/mo', type: 'Office', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', status: 'Available' },
-    { id: 6, title: 'F&B Approved Space', loc: 'Colaba', sqft: 2000, price: '₹4L/mo', type: 'Restaurant', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80', status: 'Under Offer' },
+    { id: 1, title: 'Premium Office Space in BKC', loc: 'Bandra Kurla Complex', sqft: 5000, price: '₹4.5L/mo', type: 'Office', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80', status: 'Available' },
+    { id: 2, title: 'High-Street Retail Front', loc: 'Linking Road, Bandra', sqft: 1200, price: '₹3L/mo', type: 'Retail', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80', status: 'Leased' },
+    { id: 3, title: 'IT Park Floor Plate', loc: 'Powai', sqft: 15000, price: '₹12L/mo', type: 'IT/ITES', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80', status: 'Available' },
+    { id: 4, title: 'Boutique Clinic Space', loc: 'Juhu', sqft: 800, price: '₹1.5L/mo', type: 'Medical', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80', status: 'Available' },
+    { id: 5, title: 'Corporate HQ Building', loc: 'Lower Parel', sqft: 25000, price: '₹25L/mo', type: 'Office', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80', status: 'Available' },
+    { id: 6, title: 'F&B Approved Space', loc: 'Colaba', sqft: 2000, price: '₹4L/mo', type: 'Restaurant', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80', status: 'Under Offer' },
 ];
 
 export default function Commercial() {
@@ -29,7 +29,7 @@ export default function Commercial() {
             {/* Premium Dark Hero Section */}
             <div className="relative pt-32 pb-20 overflow-hidden bg-v-black border-b border-white/10">
                 <div className="absolute inset-0 z-0 opacity-40">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" alt="Mumbai Commercial" className="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80" alt="Mumbai Commercial" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-v-black via-v-black/80 to-transparent"></div>
                 </div>
 

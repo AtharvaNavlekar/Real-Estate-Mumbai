@@ -45,7 +45,7 @@ export default function Contact() {
             <div className="bg-v-black text-white pt-40 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <img
-                        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
                         alt=""
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
@@ -226,7 +226,7 @@ export default function Contact() {
                         {/* Map Placeholder */}
                         <div className="rounded-3xl overflow-hidden border border-black/5 shadow-sm h-64 relative bg-slate-100">
                             <img
-                                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop"
                                 alt="Mumbai Map"
                                 className="w-full h-full object-cover opacity-60"
                                 referrerPolicy="no-referrer"

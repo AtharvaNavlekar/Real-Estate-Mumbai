@@ -19,7 +19,7 @@ export default function NewProjects() {
             location: "Lower Parel",
             price: "₹ 8.5 Cr Onwards",
             rera: "P51900008345",
-            image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
             tags: ["High-rise", "Luxury", "Pre-Launch"]
         },
         {
@@ -31,7 +31,7 @@ export default function NewProjects() {
             location: "Worli",
             price: "₹ 45.0 Cr Onwards",
             rera: "P51900002444",
-            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
             tags: ["Ultra-Luxury", "Sea-Facing", "Ritz-Carlton"]
         },
         {
@@ -43,7 +43,7 @@ export default function NewProjects() {
             location: "Byculla",
             price: "₹ 12.0 Cr Onwards",
             rera: "P51900003144",
-            image: "https://images.unsplash.com/photo-1600607688969-a5bfcd64bd40?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
             tags: ["Botanical Gardens", "Harbour View"]
         },
         {
@@ -55,7 +55,7 @@ export default function NewProjects() {
             location: "BKC Annexe",
             price: "₹ 6.5 Cr Onwards",
             rera: "P51800001433",
-            image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
             tags: ["Gated Community", "Corporate Hub"]
         },
         {
@@ -67,7 +67,7 @@ export default function NewProjects() {
             location: "Vikhroli",
             price: "₹ 3.8 Cr Onwards",
             rera: "P51800000165",
-            image: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
             tags: ["Township", "Mixed-Use", "Green Building"]
         },
         {
@@ -79,7 +79,7 @@ export default function NewProjects() {
             location: "Marine Lines",
             price: "₹ 18.5 Cr Onwards",
             rera: "P51900044555",
-            image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
             tags: ["Exclusive", "Pre-Launch Offers"]
         }
     ];

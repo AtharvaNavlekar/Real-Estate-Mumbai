@@ -58,21 +58,21 @@ const testimonials = [
         role: 'VP Operations, HSBC — Relocated from London',
         quote: "Found our Bandra apartment, handled every document, and had broadband installed before we flew in. Absolute white-glove service.",
         rating: 5,
-        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop',
+        avatar: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=100&auto=format&fit=crop',
     },
     {
         name: 'Aiko Tanaka',
         role: 'Senior Consultant, Deloitte — Relocated from Tokyo',
         quote: "The legal compliance team was outstanding. Police verification and society paperwork done in 3 days. I had no idea where to start.",
         rating: 5,
-        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&auto=format&fit=crop',
+        avatar: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=100&auto=format&fit=crop',
     },
     {
         name: 'Marcus de Vries',
         role: 'Country Director, Philips — Relocated from Amsterdam',
         quote: "They managed housing for 12 of our senior employees simultaneously. Flawless execution, premium properties, total peace of mind.",
         rating: 5,
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop',
+        avatar: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=100&auto=format&fit=crop',
     },
 ];
 
@@ -101,7 +101,7 @@ export default function ExpatServices() {
             <section className="relative bg-v-black text-white pt-40 pb-32 overflow-hidden">
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2000&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop"
                         alt="Mumbai city at night"
                         className="w-full h-full object-cover opacity-15"
                         referrerPolicy="no-referrer"

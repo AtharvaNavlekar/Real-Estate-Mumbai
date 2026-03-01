@@ -78,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm font-medium">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-v-blue shrink-0 mt-0.5" />
-                <span className="text-slate-400 leading-snug">501, 5th Fl, Stanford Plaza, <br />Off Link Road, Andheri West <br />Mumbai, Maharashtra 400053</span>
+                <span className="text-slate-400 leading-snug">Mumbai, Maharashtra</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Phone className="w-5 h-5 text-v-blue shrink-0" />
@@ -86,25 +86,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Mail className="w-5 h-5 text-v-blue shrink-0" />
-                <span>info@realestatemumbai.com</span>
+                <span>thenavlekar@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400 border-b border-white/10 pb-6">
                 <Clock className="w-5 h-5 text-v-blue shrink-0" />
                 <span>Mon – Sat: 10 AM – 7 PM</span>
               </li>
-
-              <li className="pt-2">
-                <div className="bg-white p-2 rounded-xl inline-block shadow-lg">
-                  {/* Simulated QR Code for WhatsApp */}
-                  <div className="w-24 h-24 bg-v-black flex items-center justify-center rounded-lg">
-                    <QrCode className="w-16 h-16 text-white" />
-                  </div>
-                </div>
-                <p className="text-[10px] text-slate-500 mt-2 uppercase tracking-widest font-bold">Scan to chat on WhatsApp</p>
-              </li>
             </ul>
           </div>
-
         </div>
 
         {/* Footer Middle Links */}
@@ -143,8 +132,8 @@ export default function Footer() {
 
         {/* Footer Base */}
         <div className="pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-4 text-xs font-medium text-slate-500 text-center">
-          <p>Our sister site: <a href="#" className="hover:text-v-blue transition-colors">MumbaiPropertyExchange.com</a> &bull; <a href="#" className="hover:text-v-blue transition-colors">Builder Projects & RERA</a></p>
-          <p>&copy; {new Date().getFullYear()} Real Estate Mumbai | www.realestatemumbai.com — Mumbai Property Exchange, RERA No. A51800043517</p>
+          <p>Our sister site: <a href="https://thenavlekar.netlify.app/" className="hover:text-v-blue transition-colors">The.Navlekar</a> &bull; <a href="#" className="hover:text-v-blue transition-colors">Builder Projects & RERA</a></p>
+          <p>&copy; {new Date().getFullYear()} Real Estate Mumbai | The.Navlekar — Mumbai Property Exchange</p>
         </div>
 
       </div>

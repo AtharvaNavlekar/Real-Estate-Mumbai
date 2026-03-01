@@ -14,7 +14,7 @@ const servicesData = {
     'expat-services': {
         title: "Expat Relocation Services",
         icon: Plane,
-        image: "https://images.unsplash.com/photo-1542314831-c6a4d14293f0?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
         subtitle: "Seamless transition to Mumbai's premium lifestyle.",
         tagline: "SPECIALIZED ADVISORY DESK",
         accentColor: "from-blue-600 to-indigo-700",
@@ -47,7 +47,7 @@ const servicesData = {
     'nri-advisory': {
         title: "NRI Investment Advisory",
         icon: Globe,
-        image: "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2000&auto=format&fit=crop",
         subtitle: "Maximized yields. Zero geographical friction.",
         tagline: "NRI INVESTMENT DESK",
         accentColor: "from-indigo-600 to-purple-700",
@@ -80,7 +80,7 @@ const servicesData = {
     'corporate-leasing': {
         title: "Corporate Leasing",
         icon: Briefcase,
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
         subtitle: "Grade-A office spaces for global enterprises.",
         tagline: "ENTERPRISE REAL ESTATE DESK",
         accentColor: "from-slate-700 to-slate-900",
@@ -113,7 +113,7 @@ const servicesData = {
     'legal-support': {
         title: "Legal & Documentation",
         icon: Scale,
-        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
         subtitle: "Transparent, compliant, and risk-free transactions.",
         tagline: "LEGAL ADVISORY DESK",
         accentColor: "from-emerald-600 to-teal-700",
