@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Bed, Bath, Square, Heart, BadgeCheck, LucideIcon } from 'lucide-react';
+import { MapPin, Bed, Bath, Square, Heart, BadgeCheck, LucideIcon, ArrowLeftRight } from 'lucide-react';
+import { useCompare } from '../context/CompareContext';
 
 export interface PropertyMetric {
   icon: LucideIcon;
@@ -24,7 +25,8 @@ interface PropertyCardProps {
   actionOverlay?: React.ReactNode;
 }
 
-export default function PropertyCard({ image, price, title, location, beds, baths, sqft, type, isFeatured, metrics, actionOverlay }: PropertyCardProps) {
+export default function PropertyCard({ image, price, title, location, beds, baths, sqft, type, isFeatured, metrics, actionOverlay, id }: PropertyCardProps & { id?: number }) {
+  const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
   // Try to split price beautifully if it contains " / ", " onwards", etc.
   const formatPrice = (priceStr: string) => {
     if (priceStr.includes(' / ')) {
@@ -67,9 +69,29 @@ export default function PropertyCard({ image, price, title, location, beds, bath
             {type}
           </span>
         </div>
-        <button className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm">
+        <button
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+          className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm"
+          aria-label={`Save ${title}`}
+        >
           <Heart className="w-5 h-5" />
         </button>
+        {id !== undefined && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const p = { id, image, price, title, location, beds: beds ?? 0, baths: baths ?? 0, sqft: sqft ?? 0, type, isFeatured };
+              isInCompare(id) ? removeFromCompare(id) : addToCompare(p);
+            }}
+            className={`absolute bottom-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors shadow-sm ${isInCompare(id) ? 'bg-v-blue text-white' : compareList.length >= 3 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white text-slate-600 hover:bg-v-blue hover:text-white'}`}
+            disabled={!isInCompare(id) && compareList.length >= 3}
+            aria-label={isInCompare(id) ? `Remove ${title} from comparison` : `Add ${title} to comparison`}
+          >
+            <ArrowLeftRight className="w-3 h-3" />
+            {isInCompare(id) ? 'Comparing' : 'Compare'}
+          </button>
+        )}
         {actionOverlay && (
           <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
             {actionOverlay}

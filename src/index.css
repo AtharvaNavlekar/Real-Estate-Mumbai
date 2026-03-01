@@ -10,11 +10,39 @@
   --color-v-blue: #3b82f6;
 }
 
-body {
-  @apply bg-v-gray text-v-black font-sans antialiased selection:bg-v-black selection:text-white;
+/* Light mode tokens */
+:root {
+  --bg-primary: #f4f4f5;
+  --bg-surface: #ffffff;
+  --text-primary: #050505;
+  --text-secondary: #64748b;
+  --border-color: rgba(0,0,0,0.08);
 }
 
-/* Custom Scrollbar - Based on Specification */
+/* Dark mode tokens */
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-surface: #1a1a1a;
+  --text-primary: #f4f4f5;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255,255,255,0.08);
+}
+
+body {
+  @apply bg-v-gray text-v-black font-sans antialiased selection:bg-v-black selection:text-white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Accessibility: visible focus rings (WCAG 2.1 AA) */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -50,3 +78,15 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
+
+/* Price flash animation for live price ticker */
+@keyframes priceUp {
+  0%, 100% { color: inherit; }
+  50% { color: #22c55e; background-color: #f0fdf4; }
+}
+@keyframes priceDown {
+  0%, 100% { color: inherit; }
+  50% { color: #ef4444; background-color: #fef2f2; }
+}
+.price-up { animation: priceUp 1s ease-in-out; }
+.price-down { animation: priceDown 1s ease-in-out; }
