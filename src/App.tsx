@@ -58,6 +58,7 @@ export default function App() {
                     <Route path="/neighborhoods/:id" element={<ErrorBoundary section="Neighborhood Details"><NeighborhoodDetails /></ErrorBoundary>} />
                     <Route path="/advisory/:id" element={<ErrorBoundary section="Advisory"><Advisory /></ErrorBoundary>} />
                     <Route path="/list-property" element={<ErrorBoundary section="Owner Portal"><OwnerPortal /></ErrorBoundary>} />
+                    <Route path="/owner-portal" element={<ErrorBoundary section="Owner Portal"><OwnerPortal /></ErrorBoundary>} />
                     <Route path="/property-management" element={<ErrorBoundary section="Property Management"><OwnerPortal /></ErrorBoundary>} />
                     <Route path="/contact" element={<ErrorBoundary section="Contact"><Contact /></ErrorBoundary>} />
                     <Route path="/about" element={<ErrorBoundary section="About"><About /></ErrorBoundary>} />
