@@ -4,9 +4,9 @@
 
 # Real Estate Mumbai
 
-**Real Estate Mumbai** is a modern, AI-powered real estate exploration and management platform tailored specifically for the Mumbai market. It provides a comprehensive suite of tools for property buyers, sellers, and agents, featuring advanced property search, real-time market analytics, neighborhood insights, and seamless AI assistance.
+**Real Estate Mumbai** is a modern real estate exploration and management platform tailored specifically for the Mumbai market. It provides a comprehensive suite of tools for property buyers, sellers, and agents, featuring advanced property search, real-time market analytics, neighborhood insights, and seamless smart assistance.
 
-Built with **React, Vite, Tailwind CSS, and Google Gemini AI**, this application offers a premium, high-performance user experience.
+Built with **React, Vite, and Tailwind CSS**, this application offers a premium, high-performance user experience.
 
 ---
 
@@ -23,7 +23,7 @@ Built with **React, Vite, Tailwind CSS, and Google Gemini AI**, this application
 
 ## Features
 
-- **AI-Powered Search & Advisory**: Leverage Google Gemini AI to find properties, get market insights, and receive personalized real estate advice.
+- **Advanced Search & Advisory**: Leverage intelligent search to find properties, get market insights, and receive personalized real estate advice.
 - **Comprehensive Listings**: Browse detailed property cards, new projects, and commercial spaces.
 - **Neighborhood Insights**: Explore deep dives into specific Mumbai neighborhoods.
 - **Market Analytics**: Visualize market rates and trends using interactive charts (Recharts).
@@ -55,9 +55,9 @@ Follow these steps to set up the project locally on your machine.
 
 3. **Configure Environment Variables:**
    - Create a `.env.local` file in the root directory.
-   - Add your [Google Gemini API Key](https://aistudio.google.com/):
+   - Add your API Key for the search functionality:
      ```env
-     GEMINI_API_KEY=your_gemini_api_key_here
+     GEMINI_API_KEY=your_api_key_here
      ```
 
 4. **Run the development server:**
@@ -74,7 +74,7 @@ Follow these steps to set up the project locally on your machine.
 
 Once the application is running, you can explore the various features:
 
-- **Searching for Properties**: Use the AI Search bar on the Home page to describe what you're looking for (e.g., *"3 BHK in Bandra West under 5 Crores"*).
+- **Searching for Properties**: Use the Smart Search bar on the Home page to describe what you're looking for (e.g., *"3 BHK in Bandra West under 5 Crores"*).
 - **Market Rates**: Navigate to the Market Rates page to view interactive charts displaying current property value trends across different Mumbai districts.
 - **Property Management**: Go to the **Dashboard** or **Owner Portal** to manage your listed properties, view engagement metrics, and handle administrative tasks.
 - **System Settings**: Access the beautifully crafted Settings page to manage account preferences, notifications, and security options.
@@ -109,7 +109,6 @@ See the `App.tsx` headers or the project repository for more details.
 **Maintained by:** [Atharva Navlekar](https://github.com/AtharvaNavlekar)
 
 - **GitHub Repository**: [Real-Estate-Mumbai](https://github.com/AtharvaNavlekar/Real-Estate-Mumbai)
-- **AI Integration**: Powered by [Google GenAI](https://aistudio.google.com/)
 - **UI Libraries**: [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/), [Lucide React](https://lucide.dev/), [Recharts](https://recharts.org/)
 
 If you have any questions, run into issues, or have feature requests, please feel free to open an issue on the GitHub repository.
