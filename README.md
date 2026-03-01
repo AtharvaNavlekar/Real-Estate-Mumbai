@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
 <br/>
 
-# 🏙️ Real Estate Mumbai
+# Real Estate Mumbai
 
 ### A premium, full-stack real estate exploration & management platform  
 ### purpose-built for the Mumbai property market.
@@ -25,7 +25,7 @@
 
 </div>
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Live Demo](#-live-demo)
@@ -49,7 +49,7 @@
 
 ---
 
-## 🌆 Overview
+## Overview
 
 Mumbai's real estate market is one of the most dynamic and complex in the world — spanning everything from ultra-luxury sea-facing penthouses in South Mumbai, to high-demand commercial corridors in BKC, to affordable residential townships in Navi Mumbai.
 
@@ -67,56 +67,56 @@ Mumbai's real estate market is one of the most dynamic and complex in the world 
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 > _Deployment coming soon. To run locally, follow the [Getting Started](#-getting-started) guide below._
 
 ---
 
-## ✨ Feature Breakdown
+## Feature Breakdown
 
-### 🔍 Smart Search & AI Advisory
+### Smart Search & AI Advisory
 - Natural language property search powered by the **Google Gemini API**
 - Describe what you want in plain language — the assistant understands area names, BHK sizes, price ranges, amenities, and lifestyle preferences
 - Receive curated property recommendations, market comparisons, and investment guidance in real time
 - Conversational follow-up: ask clarifying questions and refine results dynamically
 
-### 🏠 Property Listings
+### Property Listings
 - Richly detailed property cards featuring price, BHK configuration, area in sq. ft., floor, and amenities
 - Listings span: **Residential Apartments, Luxury Penthouses, Sea-facing Villas, Independent Bungalows, New Launch Projects, and Commercial Spaces**
 - Filter and sort by location, price band, property type, possession status, and developer
 - Shortlist and save favourite properties to a personal wishlist
 
-### 🗺️ Neighbourhood Insights
+### Neighbourhood Insights
 - Deep-dive guides for Mumbai's most sought-after micro-markets: South Mumbai, Bandra West, Juhu, Powai, BKC, Andheri, Thane, Navi Mumbai, and more
 - Each guide covers: livability score, connectivity (road, rail, metro), social infrastructure (schools, hospitals, malls), typical price per sq. ft., and investment outlook
 - Interactive maps showing points of interest, under-construction projects, and recent transactions
 
-### 📈 Market Analytics & Rates
+### Market Analytics & Rates
 - Interactive charts (built with **Recharts**) visualizing property price trends across Mumbai districts
 - Historical rate data presented as line charts and bar comparisons
 - Metrics include: average price per sq. ft., YoY appreciation, inventory count, days-on-market average, and new supply pipeline
 - Downloadable data snapshots for research and investment analysis
 
-### 👤 Buyer Portal
+### Buyer Portal
 - Personalized dashboard with saved searches, wishlisted properties, and scheduled viewings
 - Enquiry management — track all agent conversations from a single inbox
 - EMI calculator and affordability estimator built in
 - Document checklist for purchase readiness (stamp duty, registration, home loan)
 
-### 🏢 Owner / Seller Portal
+### Owner / Seller Portal
 - Self-service listing management — post, edit, unpublish, or promote properties
 - Performance analytics for each listing: views, shortlists, and enquiry conversion rates
 - Enquiry inbox with response tracking
 - Price benchmarking tool: compare your listed price against nearby comparable properties
 
-### 🧑‍💼 Agent Portal
+### Agent Portal
 - Full CRM dashboard for client and deal pipeline management
 - Multi-property listing management with bulk actions
 - Activity feed: recent enquiries, viewings, and client messages
 - Performance scorecards: ratings, response time, active listings count, and revenue tracked
 
-### ⚙️ Settings Page
+### Settings Page
 - Account preferences: name, contact info, profile photo, and pronouns
 - Notification controls: email alerts, push notifications, price drop alerts
 - Privacy & security settings: two-factor authentication toggle, session management
@@ -124,7 +124,7 @@ Mumbai's real estate market is one of the most dynamic and complex in the world 
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Category | Technology | Purpose |
 |----------|-----------|---------|
@@ -142,7 +142,7 @@ Mumbai's real estate market is one of the most dynamic and complex in the world 
 
 ---
 
-## 🗂 Project Architecture
+## Project Architecture
 
 ```
 Real-Estate-Mumbai/
@@ -207,7 +207,7 @@ Real-Estate-Mumbai/
 
 ---
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -332,9 +332,9 @@ This is a standard Vite SPA. You can deploy the `dist/` directory to any static 
 
 ---
 
-## 📖 Application Pages & Usage Guide
+## Application Pages & Usage Guide
 
-### 🏠 Home Page (`/`)
+### Home Page (`/`)
 The entry point of the application. Features a full-screen hero section with an animated background, a prominent Smart Search bar, featured new launch projects, and shortlists of popular properties by category. Scroll down to discover neighborhood spotlights and a market trends teaser.
 
 **Tip:** Type a natural language query into the Smart Search bar on the home page. For example:
@@ -344,7 +344,7 @@ The entry point of the application. Features a full-screen hero section with an 
 
 ---
 
-### 🏘️ Properties Page (`/properties`)
+### Properties Page (`/properties`)
 A full, filterable, and sortable catalog of all available property listings. Use the filter panel on the left (or bottom sheet on mobile) to narrow down results by:
 
 - **Location:** District, sub-locality, pincode
@@ -359,7 +359,7 @@ Sort results by: Newest, Price (Low → High), Price (High → Low), Area, or Po
 
 ---
 
-### 🔍 Property Detail Page (`/properties/:id`)
+### Property Detail Page (`/properties/:id`)
 A dedicated, immersive view for each property listing. Includes:
 
 - Full-bleed photo gallery with thumbnail strip
@@ -374,7 +374,7 @@ A dedicated, immersive view for each property listing. Includes:
 
 ---
 
-### 🗺️ Neighbourhoods Page (`/neighborhoods`)
+### Neighbourhoods Page (`/neighborhoods`)
 Explore Mumbai's micro-markets through rich editorial guides. Each neighborhood card leads to a detailed profile page covering:
 
 - Overview and character of the area
@@ -387,7 +387,7 @@ Explore Mumbai's micro-markets through rich editorial guides. Each neighborhood 
 
 ---
 
-### 📊 Market Rates Page (`/market-rates`)
+### Market Rates Page (`/market-rates`)
 An analytics dashboard featuring interactive Recharts visualizations:
 
 - **District Price Map:** Heatmap-style view of average property prices across Mumbai
@@ -398,7 +398,7 @@ An analytics dashboard featuring interactive Recharts visualizations:
 
 ---
 
-### 👤 Dashboard (`/dashboard`) — Buyer
+### Dashboard (`/dashboard`) — Buyer
 After logging in as a buyer, your personal hub shows:
 
 - **My Shortlist:** All properties you've saved
@@ -409,7 +409,7 @@ After logging in as a buyer, your personal hub shows:
 
 ---
 
-### 🏢 Owner Portal (`/owner-portal`) — Seller
+### Owner Portal (`/owner-portal`) — Seller
 For property owners listing their own properties:
 
 - **My Listings:** All your active, paused, and expired listings with status badges
@@ -420,7 +420,7 @@ For property owners listing their own properties:
 
 ---
 
-### 🧑‍💼 Agent Portal (`/agent-portal`) — Agent
+### Agent Portal (`/agent-portal`) — Agent
 A full CRM experience for registered real estate agents:
 
 - **Overview Dashboard:** Scorecards for total active listings, enquiries this month, viewings scheduled, and deals closed
@@ -431,12 +431,12 @@ A full CRM experience for registered real estate agents:
 
 ---
 
-### 👤 Profile Page (`/profile`)
+### Profile Page (`/profile`)
 Your public-facing profile — visible to buyers and agents you interact with. Displays your name, role, verified status, expertise tags, active listings, ratings, and contact details. Fully editable from this page.
 
 ---
 
-### ⚙️ Settings Page (`/settings`)
+### Settings Page (`/settings`)
 Manage your account at a granular level:
 
 - **Account:** Display name, email, phone number, profile photo, pronouns, date of birth
@@ -447,7 +447,7 @@ Manage your account at a granular level:
 
 ---
 
-## 🧩 Key Components
+## Key Components
 
 | Component | Location | Description |
 |-----------|----------|-------------|
@@ -463,7 +463,7 @@ Manage your account at a granular level:
 
 ---
 
-## ⚙️ Configuration Files
+## Configuration Files
 
 ### `vite.config.ts`
 Vite build configuration. Key settings include:
@@ -499,7 +499,7 @@ GEMINI_API_KEY=
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -579,7 +579,7 @@ Have an idea? [Open a feature request issue](https://github.com/AtharvaNavlekar/
 
 ---
 
-## 📐 Coding Standards
+## Coding Standards
 
 Please ensure your contributions adhere to these standards before submitting a PR.
 
@@ -617,7 +617,7 @@ Please ensure your contributions adhere to these standards before submitting a P
 
 ---
 
-## 🗓 Roadmap
+## Roadmap
 
 The following features and improvements are planned for future releases:
 
@@ -636,7 +636,7 @@ The following features and improvements are planned for future releases:
 
 ---
 
-## 📄 License
+## License
 
 This project is distributed under the **Apache License 2.0**.
 
@@ -660,7 +660,7 @@ The Apache 2.0 license means you are free to use, modify, and distribute this co
 
 ---
 
-## 🙏 Credits & Acknowledgements
+## Credits & Acknowledgements
 
 **Project Author & Maintainer**
 
