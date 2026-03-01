@@ -128,12 +128,6 @@ export default function Header() {
             ) : (
               <Link to="/auth" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.signIn')}</Link>
             )}
-            <div className="flex items-center gap-4 pt-4">
-              <button onClick={toggleTheme} className="flex items-center gap-2 text-sm font-medium text-slate-600">
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-              </button>
-            </div>
           </div>
         )
       }

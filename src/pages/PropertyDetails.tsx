@@ -208,7 +208,7 @@ export default function PropertyDetails() {
                   <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} dx={-10} tickFormatter={(value) => `₹${value}Cr`} />
                   <Tooltip
                     contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)' }}
-                    formatter={(value: number) => [`₹${value} Cr`, 'Price']}
+                    formatter={(value: number | undefined) => [`₹${value ?? 0} Cr`, 'Price']}
                     labelStyle={{ fontWeight: 'bold', color: '#0f172a' }}
                   />
                   <Line type="monotone" dataKey="price" stroke="#2563eb" strokeWidth={3} dot={{ r: 4, fill: '#2563eb', strokeWidth: 2, stroke: '#fff' }} activeDot={{ r: 6 }} />
@@ -356,7 +356,7 @@ export default function PropertyDetails() {
                           ))}
                         </Pie>
                         <Tooltip
-                          formatter={(value: number) => `₹ ${(value / 100000).toFixed(1)} L`}
+                          formatter={(value: number | undefined) => `₹ ${((value ?? 0) / 100000).toFixed(1)} L`}
                           contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', fontWeight: 'bold', color: '#fff' }}
                           itemStyle={{ color: '#fff' }}
                         />

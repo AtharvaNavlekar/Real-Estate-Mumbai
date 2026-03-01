@@ -26,6 +26,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = { hasError: false, error: null };
+        this.handleReset = this.handleReset.bind(this);
     }
 
     static getDerivedStateFromError(error: Error): State {
@@ -37,9 +38,9 @@ export default class ErrorBoundary extends Component<Props, State> {
         console.error(`[ErrorBoundary:${this.props.section || 'App'}]`, error, info.componentStack);
     }
 
-    private handleReset = () => {
+    handleReset() {
         this.setState({ hasError: false, error: null });
-    };
+    }
 
     render() {
         if (!this.state.hasError) return this.props.children;
