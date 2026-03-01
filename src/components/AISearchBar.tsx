@@ -2,80 +2,55 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Sparkles, MapPin, Home, IndianRupee } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI, Type } from '@google/genai';
 
 export default function AISearchBar() {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
-    
+
     setIsSearching(true);
-    
+    setError(null);
+
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-      
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: `Parse this real estate search query into structured data: "${query}"`,
-        config: {
-          systemInstruction: "You are a real estate AI assistant. Extract the location, property type (e.g., 3BHK, Villa), budget (e.g., < 5 Cr), and a list of specific features from the user's query. If a field is not mentioned, provide a reasonable default or leave it empty.",
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.OBJECT,
-            properties: {
-              location: {
-                type: Type.STRING,
-                description: "The location or neighborhood mentioned.",
-              },
-              propertyType: {
-                type: Type.STRING,
-                description: "The type of property (e.g., 2BHK, 3BHK, Villa, Commercial).",
-              },
-              budget: {
-                type: Type.STRING,
-                description: "The budget mentioned, formatted nicely (e.g., < ₹5 Cr).",
-              },
-              features: {
-                type: Type.ARRAY,
-                items: {
-                  type: Type.STRING,
-                },
-                description: "A list of specific features or amenities mentioned.",
-              },
-            },
-            required: ["location", "propertyType", "budget", "features"],
-          },
-        },
+      // Call our server-side proxy — API key is NEVER sent to the browser
+      const res = await fetch('/api/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
       });
 
-      const jsonStr = response.text?.trim() || '{}';
-      const parsedIntent = JSON.parse(jsonStr);
-      
+      if (!res.ok) throw new Error(`Server error: ${res.status}`);
+
+      const data = await res.json() as { intent: { location: string; propertyType: string; budget: string; features: string[] } };
+
       setResults({
-        intent: parsedIntent,
-        matches: Math.floor(Math.random() * 20) + 5 // Simulated match count
+        intent: data.intent,
+        matches: Math.floor(Math.random() * 20) + 5,
       });
-    } catch (error) {
-      console.error("Error parsing query with AI:", error);
-      // Fallback
+    } catch (err) {
+      console.error('[AISearchBar] Error:', err);
+      // Graceful fallback — still show a useful result
       setResults({
         intent: {
           location: 'Mumbai',
           propertyType: 'Any',
           budget: 'Any',
-          features: [query]
+          features: [query],
         },
-        matches: 12
+        matches: 12,
       });
+      setError('Smart search is temporarily unavailable. Showing general results.');
     } finally {
       setIsSearching(false);
     }
   };
+
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4">
@@ -160,7 +135,7 @@ export default function AISearchBar() {
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-black/5 flex justify-end">
-              <button 
+              <button
                 onClick={() => navigate('/search', { state: { results } })}
                 className="text-sm font-bold text-v-black hover:text-v-blue transition-colors flex items-center gap-1"
               >
