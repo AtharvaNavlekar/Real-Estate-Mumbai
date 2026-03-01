@@ -33,54 +33,25 @@ export default function Analytics() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm flex flex-col justify-between h-40">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-bold uppercase tracking-widest text-slate-500">Avg Property Price</p>
-            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-v-blue" />
+        {[
+          { label: 'Avg. Property Price', value: '₹ 3.5 Cr', change: '+4.2% YoY', changeColor: 'text-green-600', Icon: TrendingUp },
+          { label: 'Active Listings', value: '12,450', change: '-1.5% MoM', changeColor: 'text-red-500', Icon: BarChart3 },
+          { label: 'Avg. Days on Market', value: '45 Days', change: '-5 Days YoY', changeColor: 'text-green-600', Icon: Activity },
+          { label: 'Rental Yield', value: '3.8%', change: '+0.2% YoY', changeColor: 'text-green-600', Icon: PieChart },
+        ].map(({ label, value, change, changeColor, Icon }) => (
+          <div key={label} className="bg-white p-5 rounded-3xl border border-black/5 shadow-sm flex flex-col gap-4">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400 leading-tight">{label}</p>
+              <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                <Icon className="w-4 h-4 text-v-blue" />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-display font-black text-v-black whitespace-nowrap">{value}</h3>
+              <p className={`text-xs font-bold mt-1 ${changeColor}`}>{change}</p>
             </div>
           </div>
-          <div>
-            <h3 className="text-3xl font-display font-bold text-v-black">₹ 3.5 Cr</h3>
-            <p className="text-sm font-bold text-green-600 mt-1">+4.2% YoY</p>
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm flex flex-col justify-between h-40">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-bold uppercase tracking-widest text-slate-500">Active Listings</p>
-            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-              <BarChart3 className="w-5 h-5 text-v-blue" />
-            </div>
-          </div>
-          <div>
-            <h3 className="text-3xl font-display font-bold text-v-black">12,450</h3>
-            <p className="text-sm font-bold text-red-500 mt-1">-1.5% MoM</p>
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm flex flex-col justify-between h-40">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-bold uppercase tracking-widest text-slate-500">Avg Days on Market</p>
-            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-              <Activity className="w-5 h-5 text-v-blue" />
-            </div>
-          </div>
-          <div>
-            <h3 className="text-3xl font-display font-bold text-v-black">45 Days</h3>
-            <p className="text-sm font-bold text-green-600 mt-1">-5 Days YoY</p>
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm flex flex-col justify-between h-40">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-bold uppercase tracking-widest text-slate-500">Rental Yield</p>
-            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-              <PieChart className="w-5 h-5 text-v-blue" />
-            </div>
-          </div>
-          <div>
-            <h3 className="text-3xl font-display font-bold text-v-black">3.8%</h3>
-            <p className="text-sm font-bold text-green-600 mt-1">+0.2% YoY</p>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
