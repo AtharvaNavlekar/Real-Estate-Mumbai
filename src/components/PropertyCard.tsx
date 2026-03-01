@@ -1,0 +1,111 @@
+import React from 'react';
+import { MapPin, Bed, Bath, Square, Heart, BadgeCheck, LucideIcon } from 'lucide-react';
+
+export interface PropertyMetric {
+  icon: LucideIcon;
+  value: string | number;
+}
+
+interface PropertyCardProps {
+  key?: React.Key;
+  image: string;
+  price: string;
+  title: string;
+  location: string;
+  type: string;
+  isFeatured?: boolean;
+  // Legacy props for residential properties
+  beds?: number;
+  baths?: number;
+  sqft?: number;
+  // Flexible metrics for commercial/projects
+  metrics?: PropertyMetric[];
+  // Optional children overlay (e.g. "Manage Listing" button on dashboard)
+  actionOverlay?: React.ReactNode;
+}
+
+export default function PropertyCard({ image, price, title, location, beds, baths, sqft, type, isFeatured, metrics, actionOverlay }: PropertyCardProps) {
+  // Try to split price beautifully if it contains " / ", " onwards", etc.
+  const formatPrice = (priceStr: string) => {
+    if (priceStr.includes(' / ')) {
+      const parts = priceStr.split(' / ');
+      return (
+        <>
+          {parts[0]} /<br />{parts[1]}
+        </>
+      );
+    }
+    return priceStr;
+  };
+
+  // Determine what metrics to show
+  const displayMetrics: PropertyMetric[] = metrics || [];
+
+  if (!metrics && (beds !== undefined || baths !== undefined || sqft !== undefined)) {
+    if (beds !== undefined) displayMetrics.push({ icon: Bed, value: beds });
+    if (baths !== undefined) displayMetrics.push({ icon: Bath, value: baths });
+    if (sqft !== undefined) displayMetrics.push({ icon: Square, value: sqft });
+  }
+
+  return (
+    <div className="group bg-white rounded-[2rem] overflow-hidden border border-black/5 hover:border-black/20 hover:shadow-2xl transition-all duration-500 flex flex-col cursor-pointer p-2 h-full">
+      {/* Image Container */}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] shrink-0">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute top-4 left-4 flex flex-col gap-2">
+          {isFeatured && (
+            <span className="bg-v-black text-white text-[10px] font-bold px-3 py-2 rounded-full uppercase tracking-widest shadow-md">
+              Featured
+            </span>
+          )}
+          <span className="bg-white/95 text-v-black text-[11px] font-black px-4 py-2.5 rounded-full uppercase tracking-[0.2em] shadow-sm">
+            {type}
+          </span>
+        </div>
+        <button className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm">
+          <Heart className="w-5 h-5" />
+        </button>
+        {actionOverlay && (
+          <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            {actionOverlay}
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-4 pt-6 flex flex-col flex-1">
+        <div className="flex justify-between items-start mb-4 gap-4">
+          <h4 className="font-display text-[2.5rem] leading-[1.1] font-bold text-v-black tracking-tight">{formatPrice(price)}</h4>
+          <div className="flex items-center gap-1.5 bg-blue-50 text-blue-500 px-3 py-1.5 rounded-xl shrink-0">
+            <BadgeCheck className="w-4 h-4" />
+            <span className="text-xs font-black uppercase tracking-widest">Verified</span>
+          </div>
+        </div>
+
+        <h3 className="font-bold text-xl text-v-black mb-1 line-clamp-1 group-hover:text-v-blue transition-colors mt-2">{title}</h3>
+        <p className="text-slate-500 flex items-center gap-1.5 mb-6 text-sm">
+          <MapPin className="w-[18px] h-[18px] shrink-0" /> <span className="line-clamp-1">{location}</span>
+        </p>
+
+        <div className="mt-auto pt-6 border-t border-slate-100 flex items-center flex-wrap gap-4 text-v-black pb-2">
+          {displayMetrics.map((metric, idx) => {
+            const Icon = metric.icon;
+            return (
+              <div key={idx} className="flex items-center gap-3 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-slate-50 group-hover:bg-v-blue/5 transition-colors flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-v-black" />
+                </div>
+                <span className="font-bold text-lg">{metric.value}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
