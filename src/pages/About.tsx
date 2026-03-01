@@ -18,25 +18,21 @@ const values = [
         icon: ShieldCheck,
         title: 'Absolute Verification',
         desc: "Every listing goes through a 40-point legal and physical verification process. If it's not verified, it's not here.",
-        color: 'bg-blue-500',
     },
     {
         icon: Target,
         title: 'Data-Driven Accuracy',
         desc: 'Our AI algorithms analyze 50+ data points to give you the exact fair market value — no emotional bias in pricing.',
-        color: 'bg-amber-500',
     },
     {
         icon: Users,
         title: 'Concierge Service',
         desc: 'A dedicated expert stays with you from the first property tour to negotiating terms and handing over the keys.',
-        color: 'bg-emerald-500',
     },
     {
         icon: Award,
         title: 'Zero Spam Policy',
         desc: 'Your data is sacred. We never sell your information. Our agents only call when you explicitly request a callback.',
-        color: 'bg-indigo-500',
     },
 ];
 
@@ -166,35 +162,50 @@ export default function About() {
                 </div>
             </section>
 
-            {/* ── Core Values ──────────────────────────────────────────────────── */}
-            <section className="bg-v-black text-white py-28 px-4 md:px-8">
-                <div className="max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <span className="text-v-blue font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
-                        <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight">The Real Estate Mumbai Difference</h2>
-                    </motion.div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* ── Core Values / Editorial Layout ──────────────────────────────────── */}
+            <section className="bg-v-black text-white py-32 px-4 md:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+                    {/* Left Column - Intro */}
+                    <div className="lg:col-span-5 flex flex-col justify-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-v-blue font-bold text-xs uppercase tracking-[0.3em] mb-6 block flex items-center gap-2">
+                                <span className="w-8 h-[1px] bg-v-blue"></span> Our Philosophy
+                            </span>
+                            <h2 className="text-5xl md:text-6xl font-display font-black tracking-tight leading-[1.1] mb-6">
+                                The Real Estate<br />Mumbai Difference.
+                            </h2>
+                            <p className="text-slate-400 text-lg leading-relaxed max-w-md">
+                                We operate on first principles. No fluff, no hidden agendas. Just hard data, strict vetting, and an uncompromising commitment to our clients' success.
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Column - Stacked List */}
+                    <div className="lg:col-span-7 flex flex-col">
                         {values.map((v, i) => {
                             const Icon = v.icon;
                             return (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
+                                    initial={{ opacity: 0, x: 30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors"
+                                    transition={{ delay: i * 0.15 }}
+                                    className="group flex flex-col sm:flex-row gap-6 sm:gap-8 border-b border-white/10 py-10 first:pt-0 last:border-b-0 hover:bg-white/[0.02] transition-colors rounded-3xl -mx-6 px-6"
                                 >
-                                    <div className={`w-14 h-14 ${v.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                                        <Icon className="w-7 h-7 text-white" />
+                                    <div className="shrink-0 mt-1">
+                                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-300">
+                                            <Icon className="w-5 h-5 text-slate-300 group-hover:text-v-black transition-colors" />
+                                        </div>
                                     </div>
-                                    <h3 className="text-xl font-display font-bold mb-3">{v.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-sm">{v.desc}</p>
+                                    <div>
+                                        <h3 className="text-2xl font-display font-bold mb-3 tracking-tight group-hover:text-v-blue transition-colors">{v.title}</h3>
+                                        <p className="text-slate-400 leading-relaxed text-base max-w-lg">{v.desc}</p>
+                                    </div>
                                 </motion.div>
                             );
                         })}
