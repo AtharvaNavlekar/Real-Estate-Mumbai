@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Bed, Bath, Square, Heart, BadgeCheck, LucideIcon, ArrowLeftRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useCompare } from '../context/CompareContext';
 
 export interface PropertyMetric {
@@ -50,7 +51,11 @@ export default function PropertyCard({ image, price, title, location, beds, bath
   }
 
   return (
-    <div className="group bg-white rounded-[2rem] overflow-hidden border border-black/5 hover:border-black/20 hover:shadow-2xl transition-all duration-500 flex flex-col cursor-pointer p-2 h-full">
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="group bg-white rounded-[2rem] overflow-hidden border border-black/5 hover:border-black/20 hover:shadow-2xl transition-all duration-500 flex flex-col cursor-pointer p-2 h-full"
+    >
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] shrink-0">
         <img
@@ -71,7 +76,7 @@ export default function PropertyCard({ image, price, title, location, beds, bath
         </div>
         <button
           onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-          className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm"
+          className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 hover:scale-110 active:scale-95 transition-all shadow-sm"
           aria-label={`Save ${title}`}
         >
           <Heart className="w-5 h-5" />
@@ -84,7 +89,7 @@ export default function PropertyCard({ image, price, title, location, beds, bath
               const p = { id, image, price, title, location, beds: beds ?? 0, baths: baths ?? 0, sqft: sqft ?? 0, type, isFeatured };
               isInCompare(id) ? removeFromCompare(id) : addToCompare(p);
             }}
-            className={`absolute bottom-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors shadow-sm ${isInCompare(id) ? 'bg-v-blue text-white' : compareList.length >= 3 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white text-slate-600 hover:bg-v-blue hover:text-white'}`}
+            className={`absolute bottom-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-sm active:scale-95 ${isInCompare(id) ? 'bg-v-blue text-white hover:bg-blue-600' : compareList.length >= 3 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white text-slate-600 hover:bg-v-blue hover:text-white'}`}
             disabled={!isInCompare(id) && compareList.length >= 3}
             aria-label={isInCompare(id) ? `Remove ${title} from comparison` : `Add ${title} to comparison`}
           >
@@ -126,6 +131,6 @@ export default function PropertyCard({ image, price, title, location, beds, bath
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -169,10 +169,15 @@ export default function About() {
             {/* ── Core Values ──────────────────────────────────────────────────── */}
             <section className="bg-v-black text-white py-28 px-4 md:px-8">
                 <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
                         <span className="text-v-blue font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
                         <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight">The Real Estate Mumbai Difference</h2>
-                    </div>
+                    </motion.div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {values.map((v, i) => {
                             const Icon = v.icon;
@@ -240,8 +245,14 @@ export default function About() {
             </section>
 
             {/* ── CTA ──────────────────────────────────────────────────────────── */}
-            <section className="py-8 px-4 md:px-8 pb-24 max-w-6xl mx-auto">
-                <div className="bg-gradient-to-br from-v-blue via-blue-600 to-blue-800 rounded-3xl p-12 md:p-20 text-center text-white relative overflow-hidden">
+            <motion.section
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="py-8 px-4 md:px-8 pb-24 max-w-6xl mx-auto"
+            >
+                <div className="bg-gradient-to-br from-v-blue via-blue-600 to-blue-800 rounded-3xl p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute inset-0 top-0 left-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2" />
                     <div className="relative z-10">
                         <Building2 className="w-12 h-12 mx-auto mb-6 opacity-80" />
@@ -250,16 +261,16 @@ export default function About() {
                             Join 10,000+ satisfied clients who discovered their perfect property through us.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Link to="/properties" className="bg-white text-v-blue px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-colors">
+                            <Link to="/properties" className="bg-white text-v-blue px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-transform hover:scale-105 active:scale-95 shadow-xl">
                                 Browse Properties
                             </Link>
-                            <Link to="/contact" className="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-colors">
+                            <Link to="/contact" className="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-transform hover:scale-105 active:scale-95">
                                 Contact an Expert
                             </Link>
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
         </main>
     );
 }

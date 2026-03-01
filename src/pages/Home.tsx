@@ -136,7 +136,13 @@ export default function Home() {
       </section>
 
       {/* Featured Properties Section */}
-      <section className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
+      >
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Curated Selection</span>
@@ -165,51 +171,77 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Micro-Markets Section */}
-      <section className="py-32 px-4 md:px-8 bg-v-black w-full">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="py-32 px-4 md:px-8 bg-v-black w-full"
+      >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
+          >
             <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Location Intelligence</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">Explore Micro-Markets</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">
               Discover premium neighborhoods across Mumbai. Our data-driven insights help you make informed investment decisions.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {neighborhoods.map((neighborhood) => (
-              <Link to={`/search?location=${neighborhood.name}`} key={neighborhood.id} className="relative group rounded-3xl overflow-hidden h-96 cursor-pointer border border-white/10 block">
-                <img
-                  src={neighborhood.image}
-                  alt={neighborhood.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-v-black via-v-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {neighborhoods.map((neighborhood, idx) => (
+              <motion.div
+                key={neighborhood.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Link to={`/search?location=${neighborhood.name}`} className="relative group rounded-3xl overflow-hidden h-96 cursor-pointer border border-white/10 block">
+                  <img
+                    src={neighborhood.image}
+                    alt={neighborhood.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-v-black via-v-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <span className="text-v-blue font-bold text-xs uppercase tracking-widest mb-2">{neighborhood.propertyCount} Properties</span>
-                  <h3 className="text-3xl font-display font-bold text-white mb-3 tracking-tight">{neighborhood.name}</h3>
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <span className="text-v-blue font-bold text-xs uppercase tracking-widest mb-2">{neighborhood.propertyCount} Properties</span>
+                    <h3 className="text-3xl font-display font-bold text-white mb-3 tracking-tight">{neighborhood.name}</h3>
 
-                  <div className="overflow-hidden">
-                    <p className="text-slate-300 text-sm mb-6 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      {neighborhood.description}
-                    </p>
-                    <div className="flex items-center text-white text-sm font-bold uppercase tracking-wider transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
-                      Explore Area <ArrowRight className="w-4 h-4 ml-2 text-v-blue" />
+                    <div className="overflow-hidden">
+                      <p className="text-slate-300 text-sm mb-6 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        {neighborhood.description}
+                      </p>
+                      <div className="flex items-center text-white text-sm font-bold uppercase tracking-wider transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
+                        Explore Area <ArrowRight className="w-4 h-4 ml-2 text-v-blue" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us / Trust Indicators */}
-      <section className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">The Advantage</span>
@@ -264,10 +296,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials / Success Stories */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="py-24 px-4 md:px-8 max-w-7xl mx-auto"
+      >
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <div>
             <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Client Success</span>
@@ -299,7 +337,14 @@ export default function Home() {
               property: "Bought in Powai"
             },
           ].map((testimonial, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-black/5 hover:shadow-xl transition-shadow relative group">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="bg-white p-8 rounded-3xl border border-black/5 hover:shadow-xl transition-shadow relative group"
+            >
               <Quote className="absolute top-8 right-8 w-12 h-12 text-slate-100 group-hover:text-v-blue/10 transition-colors" />
               <div className="flex items-center gap-1 text-yellow-400 mb-6 relative">
                 <Star className="w-4 h-4 fill-current" />
@@ -321,10 +366,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* SEO Schema Injection */}
       <script
