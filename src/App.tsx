@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import CompareBar from './components/CompareBar';
+import ErrorBoundary from './components/ErrorBoundary';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import PropertyDetails from './pages/PropertyDetails';
@@ -46,31 +47,33 @@ export default function App() {
               <div className="min-h-screen bg-v-gray flex flex-col font-sans">
                 <Header />
 
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/search" element={<SearchResults />} />
-                  <Route path="/property/:id" element={<PropertyDetails />} />
-                  <Route path="/properties" element={<Properties />} />
-                  <Route path="/new-projects" element={<NewProjects />} />
-                  <Route path="/neighborhoods" element={<Neighborhoods />} />
-                  <Route path="/neighborhoods/:id" element={<NeighborhoodDetails />} />
-                  <Route path="/advisory/:id" element={<Advisory />} />
-                  <Route path="/list-property" element={<OwnerPortal />} />
-                  <Route path="/property-management" element={<OwnerPortal />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/market-rates" element={<MarketRates />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/settings" element={<Settings />} />
-                  <Route path="/post-property" element={<PostProperty />} />
-                  <Route path="/commercial" element={<Commercial />} />
-                  <Route path="/news" element={<News />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/builders" element={<Builders />} />
-                  <Route path="/ceo" element={<CEO />} />
-                </Routes>
+                <ErrorBoundary section="App">
+                  <Routes>
+                    <Route path="/" element={<ErrorBoundary section="Home"><Home /></ErrorBoundary>} />
+                    <Route path="/search" element={<ErrorBoundary section="Search"><SearchResults /></ErrorBoundary>} />
+                    <Route path="/property/:id" element={<ErrorBoundary section="Property Details"><PropertyDetails /></ErrorBoundary>} />
+                    <Route path="/properties" element={<ErrorBoundary section="Properties"><Properties /></ErrorBoundary>} />
+                    <Route path="/new-projects" element={<ErrorBoundary section="New Projects"><NewProjects /></ErrorBoundary>} />
+                    <Route path="/neighborhoods" element={<ErrorBoundary section="Neighborhoods"><Neighborhoods /></ErrorBoundary>} />
+                    <Route path="/neighborhoods/:id" element={<ErrorBoundary section="Neighborhood Details"><NeighborhoodDetails /></ErrorBoundary>} />
+                    <Route path="/advisory/:id" element={<ErrorBoundary section="Advisory"><Advisory /></ErrorBoundary>} />
+                    <Route path="/list-property" element={<ErrorBoundary section="Owner Portal"><OwnerPortal /></ErrorBoundary>} />
+                    <Route path="/property-management" element={<ErrorBoundary section="Property Management"><OwnerPortal /></ErrorBoundary>} />
+                    <Route path="/contact" element={<ErrorBoundary section="Contact"><Contact /></ErrorBoundary>} />
+                    <Route path="/about" element={<ErrorBoundary section="About"><About /></ErrorBoundary>} />
+                    <Route path="/dashboard" element={<ErrorBoundary section="Dashboard"><Dashboard /></ErrorBoundary>} />
+                    <Route path="/profile" element={<ErrorBoundary section="Profile"><Profile /></ErrorBoundary>} />
+                    <Route path="/market-rates" element={<ErrorBoundary section="Market Rates"><MarketRates /></ErrorBoundary>} />
+                    <Route path="/auth" element={<ErrorBoundary section="Authentication"><Auth /></ErrorBoundary>} />
+                    <Route path="/settings" element={<ErrorBoundary section="Settings"><Settings /></ErrorBoundary>} />
+                    <Route path="/post-property" element={<ErrorBoundary section="Post Property"><PostProperty /></ErrorBoundary>} />
+                    <Route path="/commercial" element={<ErrorBoundary section="Commercial"><Commercial /></ErrorBoundary>} />
+                    <Route path="/news" element={<ErrorBoundary section="News"><News /></ErrorBoundary>} />
+                    <Route path="/faq" element={<ErrorBoundary section="FAQ"><FAQ /></ErrorBoundary>} />
+                    <Route path="/builders" element={<ErrorBoundary section="Builders"><Builders /></ErrorBoundary>} />
+                    <Route path="/ceo" element={<ErrorBoundary section="CEO"><CEO /></ErrorBoundary>} />
+                  </Routes>
+                </ErrorBoundary>
 
                 <Footer />
                 <FloatingActions />
