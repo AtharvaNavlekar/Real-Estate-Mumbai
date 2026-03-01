@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, Heart, User, BadgeCheck, X, ChevronDown, Sun, Moon, Globe, LogOut } from 'lucide-react';
+import { Menu, Heart, User, BadgeCheck, X, ChevronDown, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 
 type Language = 'en' | 'hi' | 'mr';
 
 export default function Header() {
   const { user, logout } = useAuth();
-  const { theme, toggleTheme } = useTheme();
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -52,36 +50,7 @@ export default function Header() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Language Switcher */}
-          <div className="relative group">
-            <button
-              className="p-2 text-slate-600 hover:text-v-black transition-colors rounded-full hover:bg-slate-100 flex items-center gap-1 text-xs font-bold"
-              aria-label="Change language"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="uppercase">{language}</span>
-            </button>
-            <div className="absolute top-full right-0 w-28 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 translate-y-2 group-hover:translate-y-0 z-50">
-              {(['en', 'hi', 'mr'] as Language[]).map(lang => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`px-4 py-2 text-left text-sm hover:bg-slate-50 font-medium ${language === lang ? 'text-v-blue font-bold' : 'text-slate-600'}`}
-                >
-                  {lang === 'en' ? 'English' : lang === 'hi' ? 'हिंदी' : 'मराठी'}
-                </button>
-              ))}
-            </div>
-          </div>
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 text-slate-600 hover:text-v-black transition-colors rounded-full hover:bg-slate-100"
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
 
           <Link to="/dashboard" className="p-2 text-slate-600 hover:text-v-black transition-colors" aria-label="Saved properties">
             <Heart className="w-5 h-5" />
@@ -137,35 +106,37 @@ export default function Header() {
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
-      </header>
+      </header >
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="fixed inset-0 bg-white z-30 pt-28 px-6 flex flex-col gap-4 text-lg font-bold text-v-black lg:hidden overflow-y-auto">
-          <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">Home</Link>
-          <Link to="/properties?intent=buy" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.buy')}</Link>
-          <Link to="/properties?intent=rent" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.rent')}</Link>
-          <Link to="/commercial" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.commercial')}</Link>
-          <Link to="/new-projects" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.newProjects')}</Link>
-          <Link to="/neighborhoods" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.neighborhoods')}</Link>
-          <Link to="/market-rates" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.marketRates')}</Link>
-          <Link to="/property-management" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.ownerPortal')}</Link>
-          {user ? (
-            <>
-              <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.dashboard')}</Link>
-              <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="py-3 text-red-500 text-left">{t('nav.logout')}</button>
-            </>
-          ) : (
-            <Link to="/auth" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.signIn')}</Link>
-          )}
-          <div className="flex items-center gap-4 pt-4">
-            <button onClick={toggleTheme} className="flex items-center gap-2 text-sm font-medium text-slate-600">
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-            </button>
+      {
+        mobileOpen && (
+          <div className="fixed inset-0 bg-white z-30 pt-28 px-6 flex flex-col gap-4 text-lg font-bold text-v-black lg:hidden overflow-y-auto">
+            <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">Home</Link>
+            <Link to="/properties?intent=buy" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.buy')}</Link>
+            <Link to="/properties?intent=rent" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.rent')}</Link>
+            <Link to="/commercial" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.commercial')}</Link>
+            <Link to="/new-projects" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.newProjects')}</Link>
+            <Link to="/neighborhoods" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.neighborhoods')}</Link>
+            <Link to="/market-rates" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.marketRates')}</Link>
+            <Link to="/property-management" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.ownerPortal')}</Link>
+            {user ? (
+              <>
+                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.dashboard')}</Link>
+                <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="py-3 text-red-500 text-left">{t('nav.logout')}</button>
+              </>
+            ) : (
+              <Link to="/auth" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.signIn')}</Link>
+            )}
+            <div className="flex items-center gap-4 pt-4">
+              <button onClick={toggleTheme} className="flex items-center gap-2 text-sm font-medium text-slate-600">
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
     </>
   );
 }
