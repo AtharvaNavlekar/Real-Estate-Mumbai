@@ -33,19 +33,11 @@ export default function Header() {
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-bold text-v-black/90 drop-shadow-md" aria-label="Main navigation">
-          <div className="relative group py-2">
-            <button className="hover:text-v-blue transition-colors flex items-center gap-1 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-              {t('nav.commercial')} <ChevronDown className="w-4 h-4 opacity-70" />
-            </button>
-            <div className="absolute top-full left-0 w-40 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 translate-y-2 group-hover:translate-y-0">
-              <Link to="/commercial?type=buy" className="px-4 py-2 hover:bg-slate-50 text-slate-600 font-medium hover:text-v-blue">{t('nav.buy')}</Link>
-              <Link to="/commercial?type=rent" className="px-4 py-2 hover:bg-slate-50 text-slate-600 font-medium hover:text-v-blue">{t('nav.rent')}</Link>
-            </div>
-          </div>
+          <Link to="/about" className="hover:text-v-blue transition-colors">About Us</Link>
           <Link to="/new-projects" className="hover:text-v-blue transition-colors">{t('nav.newProjects')}</Link>
           <Link to="/neighborhoods" className="hover:text-v-blue transition-colors">{t('nav.neighborhoods')}</Link>
           <Link to="/market-rates" className="hover:text-v-blue transition-colors">{t('nav.marketRates')}</Link>
-          <Link to="/property-management" className="hover:text-v-blue transition-colors">{t('nav.ownerPortal')}</Link>
+          <Link to="/CEO" className="hover:text-v-blue transition-colors">{t('nav.ownerPortal')}</Link>
         </nav>
 
         {/* Actions */}
@@ -115,7 +107,7 @@ export default function Header() {
             <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">Home</Link>
             <Link to="/properties?intent=buy" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.buy')}</Link>
             <Link to="/properties?intent=rent" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.rent')}</Link>
-            <Link to="/commercial" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.commercial')}</Link>
+            <Link to="/about" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">About Us</Link>
             <Link to="/new-projects" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.newProjects')}</Link>
             <Link to="/neighborhoods" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.neighborhoods')}</Link>
             <Link to="/market-rates" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.marketRates')}</Link>
