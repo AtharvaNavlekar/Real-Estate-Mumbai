@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # Real Estate Mumbai
 
 **Real Estate Mumbai** is a modern real estate exploration and management platform tailored specifically for the Mumbai market. It provides a comprehensive suite of tools for property buyers, sellers, and agents, featuring advanced property search, real-time market analytics, neighborhood insights, and seamless smart assistance.
