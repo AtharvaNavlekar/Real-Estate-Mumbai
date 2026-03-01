@@ -101,28 +101,26 @@ export default function PropertyCard({ image, price, title, location, beds, bath
 
       {/* Content */}
       <div className="p-4 pt-6 flex flex-col flex-1">
-        <div className="flex justify-between items-start mb-4 gap-4">
-          <h4 className="font-display text-[2.5rem] leading-[1.1] font-bold text-v-black tracking-tight">{formatPrice(price)}</h4>
-          <div className="flex items-center gap-1.5 bg-blue-50 text-blue-500 px-3 py-1.5 rounded-xl shrink-0">
-            <BadgeCheck className="w-4 h-4" />
-            <span className="text-xs font-black uppercase tracking-widest">Verified</span>
+        <div className="flex justify-between items-center mb-3 gap-2">
+          <h4 className="font-display text-xl font-black text-v-black tracking-tight whitespace-nowrap">{formatPrice(price)}</h4>
+          <div className="flex items-center gap-1 bg-blue-50 text-blue-500 px-2.5 py-1 rounded-xl shrink-0">
+            <BadgeCheck className="w-3.5 h-3.5" />
+            <span className="text-[10px] font-black uppercase tracking-widest">Verified</span>
           </div>
         </div>
 
-        <h3 className="font-bold text-xl text-v-black mb-1 line-clamp-1 group-hover:text-v-blue transition-colors mt-2">{title}</h3>
-        <p className="text-slate-500 flex items-center gap-1.5 mb-6 text-sm">
-          <MapPin className="w-[18px] h-[18px] shrink-0" /> <span className="line-clamp-1">{location}</span>
+        <h3 className="font-bold text-base text-v-black mb-1 line-clamp-2 group-hover:text-v-blue transition-colors leading-snug">{title}</h3>
+        <p className="text-slate-400 flex items-center gap-1 mb-4 text-xs font-medium">
+          <MapPin className="w-3.5 h-3.5 shrink-0" /> <span className="line-clamp-1">{location}</span>
         </p>
 
-        <div className="mt-auto pt-6 border-t border-slate-100 flex items-center flex-wrap gap-4 text-v-black pb-2">
+        <div className="mt-auto pt-4 border-t border-slate-100 flex items-center flex-wrap gap-x-4 gap-y-2 text-v-black pb-1">
           {displayMetrics.map((metric, idx) => {
             const Icon = metric.icon;
             return (
-              <div key={idx} className="flex items-center gap-3 shrink-0">
-                <div className="w-10 h-10 rounded-full bg-slate-50 group-hover:bg-v-blue/5 transition-colors flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-v-black" />
-                </div>
-                <span className="font-bold text-lg">{metric.value}</span>
+              <div key={idx} className="flex items-center gap-1.5 shrink-0">
+                <Icon className="w-4 h-4 text-slate-400" />
+                <span className="font-bold text-sm text-v-black">{metric.value}</span>
               </div>
             );
           })}
