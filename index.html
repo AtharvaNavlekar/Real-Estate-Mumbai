@@ -4,8 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Real Estate Mumbai — Browse, buy, rent and invest in Mumbai's most sought-after properties." />
+  <meta name="description"
+    content="Real Estate Mumbai — A premium React/TypeScript UI template for real estate platforms. Explore properties, neighborhoods, and market analytics for Mumbai." />
   <meta name="theme-color" content="#0A0A0A" />
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Real Estate Mumbai — Premium React Template" />
+  <meta property="og:description"
+    content="A luxury real estate UI starter kit built with React 18, TypeScript, Vite, and Tailwind CSS. Mumbai-themed with Framer Motion animations." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Real Estate Mumbai — Premium React Template" />
+  <meta name="twitter:description"
+    content="A luxury real estate UI starter kit built with React 18, TypeScript, Vite, and Tailwind CSS." />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
   <title>THE.NAVLEKAR — Real Estate Mumbai</title>
 </head>
@@ -16,7 +29,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
+        navigator.serviceWorker.register('/sw.js').catch(() => { });
       });
     }
   </script>

@@ -73,6 +73,34 @@ Mumbai's real estate market is one of the most dynamic and complex in the world 
 
 ---
 
+## Implementation Status
+
+> [!IMPORTANT]
+> This project is a **premium UI template and starter kit**, not a production SaaS. The table below clearly distinguishes what is fully implemented in the current codebase vs. what requires backend integration.
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Multi-page SPA routing | Implemented | React Router DOM |
+| Luxury animated UI | Implemented | Framer Motion, Tailwind |
+| Property listing cards | Implemented | Mock data via `src/data/` |
+| Neighborhood guides | Implemented | Static editorial content |
+| Market analytics charts | Implemented | Recharts, mock data |
+| Smart Search (AI query parsing) | Implemented | Gemini API via server-side proxy |
+| User authentication (UI) | Implemented | Form + localStorage session |
+| User auth (real backend) | **Roadmap** | Needs Supabase Auth / Clerk |
+| Real property database | **Roadmap** | Replace mock data with API |
+| Enquiry inbox / messaging | **Roadmap** | UI only, no delivery system |
+| Viewing scheduler | **Roadmap** | UI only, no calendar backend |
+| Agent CRM pipeline | **Roadmap** | UI only, no data persistence |
+| Push notifications | **Roadmap** | Web API integrated, no server push |
+| PWA (offline support) | Implemented | Service worker + manifest.json |
+| Property comparison | Implemented | CompareBar + side-by-side modal |
+| Error boundaries | Implemented | All routes protected |
+
+See [`CUSTOMIZATION.md`](CUSTOMIZATION.md) for a complete guide on connecting a real backend.
+
+---
+
 ## Feature Breakdown
 
 ### Smart Search & AI Advisory
