@@ -32,6 +32,7 @@ import News from './pages/News';
 import FAQ from './pages/FAQ';
 import Builders from './pages/Builders';
 import CEO from './pages/CEO';
+import ExpatServices from './pages/ExpatServices';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { CompareProvider } from './context/CompareContext';
@@ -73,6 +74,7 @@ export default function App() {
                     <Route path="/faq" element={<ErrorBoundary section="FAQ"><FAQ /></ErrorBoundary>} />
                     <Route path="/builders" element={<ErrorBoundary section="Builders"><Builders /></ErrorBoundary>} />
                     <Route path="/ceo" element={<ErrorBoundary section="CEO"><CEO /></ErrorBoundary>} />
+                    <Route path="/expat-services" element={<ErrorBoundary section="Expat Services"><ExpatServices /></ErrorBoundary>} />
                   </Routes>
                 </ErrorBoundary>
 
