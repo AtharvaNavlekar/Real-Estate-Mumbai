@@ -8,6 +8,7 @@ import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-d
 import { AnimatePresence, motion } from 'motion/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import FloatingActions from './components/FloatingActions';
 import CompareBar from './components/CompareBar';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -47,6 +48,7 @@ export default function App() {
           <CompareProvider>
             <Router>
               <div className="min-h-screen bg-v-gray flex flex-col font-sans">
+                <ScrollToTop />
                 <Header />
                 <AnimatedRoutes />
                 <Footer />                <FloatingActions />
