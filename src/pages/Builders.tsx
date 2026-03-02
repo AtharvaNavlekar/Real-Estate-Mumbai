@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Building2, Award, Users, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
 
 const builders = [
@@ -76,9 +77,9 @@ export default function Builders() {
                                     </div>
                                 </div>
 
-                                <button className="w-full bg-slate-50 hover:bg-v-black hover:text-white text-v-black border border-slate-200 py-3.5 rounded-xl font-bold transition-all shadow-sm flex items-center justify-center gap-2 group-hover:bg-v-blue group-hover:text-white group-hover:border-v-blue">
+                                <Link to={`/builders/${builder.id}`} className="w-full bg-slate-50 hover:bg-v-black hover:text-white text-v-black border border-slate-200 py-3.5 rounded-xl font-bold transition-all shadow-sm flex items-center justify-center gap-2 group-hover:bg-v-blue group-hover:text-white group-hover:border-v-blue">
                                     View All Projects <ArrowRight className="w-4 h-4" />
-                                </button>
+                                </Link>
                             </div>
                         </motion.div>
                     ))}

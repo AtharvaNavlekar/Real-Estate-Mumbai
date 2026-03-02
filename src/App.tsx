@@ -35,6 +35,10 @@ import FAQ from './pages/FAQ';
 import Builders from './pages/Builders';
 import CEO from './pages/CEO';
 import ExpatServices from './pages/ExpatServices';
+import BuilderDetails from './pages/BuilderDetails';
+import NewsArticle from './pages/NewsArticle';
+import ProjectDetails from './pages/ProjectDetails';
+import Analytics from './pages/Analytics';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { CompareProvider } from './context/CompareContext';
@@ -102,6 +106,10 @@ function AnimatedRoutes() {
             <Route path="/builders" element={<ErrorBoundary section="Builders"><Builders /></ErrorBoundary>} />
             <Route path="/ceo" element={<ErrorBoundary section="CEO"><CEO /></ErrorBoundary>} />
             <Route path="/expat-services" element={<ErrorBoundary section="Expat Services"><ExpatServices /></ErrorBoundary>} />
+            <Route path="/builders/:id" element={<ErrorBoundary section="Builder Details"><BuilderDetails /></ErrorBoundary>} />
+            <Route path="/news/:id" element={<ErrorBoundary section="News Article"><NewsArticle /></ErrorBoundary>} />
+            <Route path="/new-projects/:id" element={<ErrorBoundary section="Project Details"><ProjectDetails /></ErrorBoundary>} />
+            <Route path="/analytics" element={<ErrorBoundary section="Analytics"><Analytics /></ErrorBoundary>} />
           </Routes>
         </ErrorBoundary>
       </motion.div>

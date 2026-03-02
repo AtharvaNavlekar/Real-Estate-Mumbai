@@ -37,7 +37,7 @@ export default function Header() {
           <Link to="/new-projects" className="hover:text-v-blue transition-colors">{t('nav.newProjects')}</Link>
           <Link to="/neighborhoods" className="hover:text-v-blue transition-colors">{t('nav.neighborhoods')}</Link>
           <Link to="/market-rates" className="hover:text-v-blue transition-colors">{t('nav.marketRates')}</Link>
-          <Link to="/CEO" className="hover:text-v-blue transition-colors">{t('nav.ownerPortal')}</Link>
+          <Link to="/owner-portal" className="hover:text-v-blue transition-colors">{t('nav.ownerPortal')}</Link>
         </nav>
 
         {/* Actions */}

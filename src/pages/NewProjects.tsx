@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import {
     Construction, ArrowRight, ShieldCheck, MapPin, Search,
     ChevronDown, Sparkles, Building2, Calendar
@@ -153,17 +154,19 @@ export default function NewProjects() {
                             transition={{ delay: idx * 0.1 }}
                             key={project.id}
                         >
-                            <PropertyCard
-                                title={project.name}
-                                location={project.location}
-                                image={project.image}
-                                type={project.status}
-                                price={project.price}
-                                metrics={[
-                                    { icon: Building2, value: project.developer },
-                                    { icon: Calendar, value: project.possession }
-                                ]}
-                            />
+                            <Link to={`/new-projects/${project.id}`} className="block">
+                                <PropertyCard
+                                    title={project.name}
+                                    location={project.location}
+                                    image={project.image}
+                                    type={project.status}
+                                    price={project.price}
+                                    metrics={[
+                                        { icon: Building2, value: project.developer },
+                                        { icon: Calendar, value: project.possession }
+                                    ]}
+                                />
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
@@ -178,9 +181,9 @@ export default function NewProjects() {
                         </p>
                     </div>
                     <div className="relative z-10 w-full md:w-auto shrink-0">
-                        <button className="w-full md:w-auto bg-white text-v-black px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors shadow-lg whitespace-nowrap">
+                        <Link to="/contact" className="w-full md:w-auto bg-white text-v-black px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors shadow-lg whitespace-nowrap inline-block text-center">
                             Join VIP Network
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

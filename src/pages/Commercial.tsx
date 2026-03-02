@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, MapPin, Building2, Briefcase, Store, ArrowRight, CheckCircle2, TrendingUp, SlidersHorizontal, Filter, X } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import PropertyCard from '../components/PropertyCard';
 
 const commercialInventory = [
@@ -88,18 +88,19 @@ export default function Commercial() {
                     {commercialInventory
                         .filter(item => activeFilter === 'all' || item.type.toLowerCase().includes(activeFilter))
                         .map((item) => (
-                            <PropertyCard
-                                key={item.id}
-                                title={item.title}
-                                location={item.loc}
-                                image={item.image}
-                                type={item.type}
-                                price={item.price}
-                                isFeatured={item.status === 'Available'}
-                                metrics={[
-                                    { icon: Briefcase, value: `${item.sqft} sq.ft` }
-                                ]}
-                            />
+                            <Link to={`/property/${item.id}`} key={item.id} className="block">
+                                <PropertyCard
+                                    title={item.title}
+                                    location={item.loc}
+                                    image={item.image}
+                                    type={item.type}
+                                    price={item.price}
+                                    isFeatured={item.status === 'Available'}
+                                    metrics={[
+                                        { icon: Briefcase, value: `${item.sqft} sq.ft` }
+                                    ]}
+                                />
+                            </Link>
                         ))}
                 </div>
 
@@ -116,12 +117,12 @@ export default function Commercial() {
                             Our Corporate Leasing division assists MNCs with mandate execution, legal structuring, and built-to-suit requirements across Grade A IT Parks.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-white text-v-black px-8 py-3.5 rounded-xl font-bold shadow-xl hover:bg-slate-100 transition-colors">
+                            <Link to="/contact" className="bg-white text-v-black px-8 py-3.5 rounded-xl font-bold shadow-xl hover:bg-slate-100 transition-colors inline-block">
                                 Book Consultation
-                            </button>
-                            <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors">
+                            </Link>
+                            <Link to="/owner-portal" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors inline-block">
                                 View Corporate Services
-                            </button>
+                            </Link>
                         </div>
                     </div>
 

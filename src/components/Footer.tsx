@@ -27,16 +27,16 @@ export default function Footer() {
               The intelligence-first real estate engine for Mumbai. We combine deep local market expertise with cutting-edge AI to help you find your perfect property.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-v-blue hover:text-white transition-colors text-slate-400">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -132,7 +132,7 @@ export default function Footer() {
 
         {/* Footer Base */}
         <div className="pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-4 text-xs font-medium text-slate-500 text-center">
-          <p>Our sister site: <a href="https://thenavlekar.netlify.app/" className="hover:text-v-blue transition-colors">The.Navlekar</a> &bull; <a href="#" className="hover:text-v-blue transition-colors">Builder Projects & RERA</a></p>
+          <p>Our sister site: <a href="https://thenavlekar.netlify.app/" className="hover:text-v-blue transition-colors">The.Navlekar</a> &bull; <Link to="/builders" className="hover:text-v-blue transition-colors">Builder Projects & RERA</Link></p>
           <p>&copy; {new Date().getFullYear()} Real Estate Mumbai | The.Navlekar — Mumbai Property Exchange</p>
         </div>
 
