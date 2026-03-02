@@ -67,7 +67,7 @@ const milestones = [
 
 export default function About() {
     return (
-        <main className="flex-1 pt-0 pb-0 w-full overflow-x-hidden">
+        <main className="flex-1 pt-0 pb-0 w-full">
 
             {/* ── Hero ─────────────────────────────────────────────────────────── */}
             <section className="relative bg-v-black text-white pt-40 pb-32 overflow-hidden">

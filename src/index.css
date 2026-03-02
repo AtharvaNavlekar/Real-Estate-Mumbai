@@ -65,7 +65,7 @@ body {
 }
 
 /* Firefox Scrollbar Fallback */
-* {
+html {
   scrollbar-width: thin;
   scrollbar-color: rgba(17, 17, 17, 0.3) transparent;
 }
