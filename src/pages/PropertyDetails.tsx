@@ -286,9 +286,9 @@ export default function PropertyDetails() {
                 {/* Sliders */}
                 <div className="space-y-8">
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md">
-                    <div className="flex justify-between mb-4 items-end">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400">Principal</label>
-                      <span className="text-xl font-black text-white font-display">₹ {(loanAmount / 10000000).toFixed(2)} Cr</span>
+                    <div className="flex justify-between mb-4 items-end gap-2">
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap">Principal</label>
+                      <span className="text-xl font-black text-white font-display whitespace-nowrap">₹ {(loanAmount / 10000000).toFixed(2)} Cr</span>
                     </div>
                     <input
                       type="range"
@@ -302,9 +302,9 @@ export default function PropertyDetails() {
                   </div>
 
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md">
-                    <div className="flex justify-between mb-4 items-end">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400">Interest Rate</label>
-                      <span className="text-xl font-black text-white font-display">{interestRate}%</span>
+                    <div className="flex justify-between mb-4 items-end gap-2">
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap">Interest Rate</label>
+                      <span className="text-xl font-black text-white font-display whitespace-nowrap">{interestRate}%</span>
                     </div>
                     <input
                       type="range"
@@ -318,9 +318,9 @@ export default function PropertyDetails() {
                   </div>
 
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md">
-                    <div className="flex justify-between mb-4 items-end">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400">Tenure</label>
-                      <span className="text-xl font-black text-white font-display">{loanTenure} Yrs</span>
+                    <div className="flex justify-between mb-4 items-end gap-2">
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap">Tenure</label>
+                      <span className="text-xl font-black text-white font-display whitespace-nowrap">{loanTenure} Yrs</span>
                     </div>
                     <input
                       type="range"
@@ -363,20 +363,20 @@ export default function PropertyDetails() {
                       </PieChart>
                     </ResponsiveContainer>
                     <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mt-2">Est. EMI</p>
-                      <p className="text-xl font-black text-white">₹ {(calculateEMI() / 100000).toFixed(2)}L</p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mt-2 whitespace-nowrap">Est. EMI</p>
+                      <p className="text-xl font-black text-white whitespace-nowrap">₹ {(calculateEMI() / 100000).toFixed(2)}L</p>
                     </div>
                   </div>
 
                   {/* Legends */}
                   <div className="w-full space-y-3 bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-sm">
                     {emiData.map((data, idx) => (
-                      <div key={idx} className="flex justify-between items-center pr-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: data.color }}></div>
-                          <span className="text-slate-300 font-medium font-sans text-xs">{data.name}</span>
+                      <div key={idx} className="flex justify-between items-center pr-2 gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className="w-3 h-3 rounded-full shadow-sm shrink-0" style={{ backgroundColor: data.color }}></div>
+                          <span className="text-slate-300 font-medium font-sans text-xs truncate">{data.name}</span>
                         </div>
-                        <span className="font-bold text-white">₹ {(data.value / 10000000).toFixed(2)} Cr</span>
+                        <span className="font-bold text-white whitespace-nowrap shrink-0">₹ {(data.value / 10000000).toFixed(2)} Cr</span>
                       </div>
                     ))}
                   </div>
