@@ -1,0 +1,48 @@
+title = "Gitleaks Configuration — Real Estate Mumbai"
+
+# Rules to detect common secret patterns
+[[rules]]
+  id = "generic-api-key"
+  description = "Generic API Key"
+  regex = '''(?i)(api[_-]?key|apikey|secret[_-]?key)\s*[:=]\s*['"]?[a-zA-Z0-9_\-]{20,}['"]?'''
+  tags = ["key", "API"]
+
+[[rules]]
+  id = "gemini-api-key"
+  description = "Google Gemini API Key"
+  regex = '''AIza[0-9A-Za-z_\-]{35}'''
+  tags = ["google", "gemini"]
+
+[[rules]]
+  id = "firebase-key"
+  description = "Firebase API Key"
+  regex = '''(?i)firebase[_-]?(api[_-]?key|config)\s*[:=]\s*['"]?[a-zA-Z0-9_\-]{20,}'''
+  tags = ["firebase", "google"]
+
+[[rules]]
+  id = "jwt-token"
+  description = "JWT Token"
+  regex = '''eyJ[a-zA-Z0-9_\-]+\.eyJ[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+'''
+  tags = ["jwt", "token"]
+
+[[rules]]
+  id = "private-key"
+  description = "Private Key"
+  regex = '''-----BEGIN (RSA |EC )?PRIVATE KEY-----'''
+  tags = ["key", "private"]
+
+[[rules]]
+  id = "connection-string"
+  description = "Database Connection String"
+  regex = '''(?i)(mongodb|postgres|mysql|redis):\/\/[^\s]+'''
+  tags = ["database", "connection"]
+
+# Files and paths to ignore
+[allowlist]
+  paths = [
+    '''node_modules/''',
+    '''dist/''',
+    '''\.git/''',
+    '''package-lock\.json''',
+    '''\.env\.example''',
+  ]

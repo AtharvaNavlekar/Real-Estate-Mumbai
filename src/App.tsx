@@ -12,6 +12,7 @@ import ScrollToTop from './components/ScrollToTop';
 import FloatingActions from './components/FloatingActions';
 import CompareBar from './components/CompareBar';
 import ErrorBoundary from './components/ErrorBoundary';
+import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import PropertyDetails from './pages/PropertyDetails';
@@ -94,12 +95,12 @@ function AnimatedRoutes() {
             <Route path="/property-management" element={<ErrorBoundary section="Property Management"><OwnerPortal /></ErrorBoundary>} />
             <Route path="/contact" element={<ErrorBoundary section="Contact"><Contact /></ErrorBoundary>} />
             <Route path="/about" element={<ErrorBoundary section="About"><About /></ErrorBoundary>} />
-            <Route path="/dashboard" element={<ErrorBoundary section="Dashboard"><Dashboard /></ErrorBoundary>} />
-            <Route path="/profile" element={<ErrorBoundary section="Profile"><Profile /></ErrorBoundary>} />
+            <Route path="/dashboard" element={<ErrorBoundary section="Dashboard"><ProtectedRoute><Dashboard /></ProtectedRoute></ErrorBoundary>} />
+            <Route path="/profile" element={<ErrorBoundary section="Profile"><ProtectedRoute><Profile /></ProtectedRoute></ErrorBoundary>} />
             <Route path="/market-rates" element={<ErrorBoundary section="Market Rates"><MarketRates /></ErrorBoundary>} />
             <Route path="/auth" element={<ErrorBoundary section="Authentication"><Auth /></ErrorBoundary>} />
-            <Route path="/settings" element={<ErrorBoundary section="Settings"><Settings /></ErrorBoundary>} />
-            <Route path="/post-property" element={<ErrorBoundary section="Post Property"><PostProperty /></ErrorBoundary>} />
+            <Route path="/settings" element={<ErrorBoundary section="Settings"><ProtectedRoute><Settings /></ProtectedRoute></ErrorBoundary>} />
+            <Route path="/post-property" element={<ErrorBoundary section="Post Property"><ProtectedRoute><PostProperty /></ProtectedRoute></ErrorBoundary>} />
             <Route path="/commercial" element={<ErrorBoundary section="Commercial"><Commercial /></ErrorBoundary>} />
             <Route path="/news" element={<ErrorBoundary section="News"><News /></ErrorBoundary>} />
             <Route path="/faq" element={<ErrorBoundary section="FAQ"><FAQ /></ErrorBoundary>} />
@@ -109,7 +110,7 @@ function AnimatedRoutes() {
             <Route path="/builders/:id" element={<ErrorBoundary section="Builder Details"><BuilderDetails /></ErrorBoundary>} />
             <Route path="/news/:id" element={<ErrorBoundary section="News Article"><NewsArticle /></ErrorBoundary>} />
             <Route path="/new-projects/:id" element={<ErrorBoundary section="Project Details"><ProjectDetails /></ErrorBoundary>} />
-            <Route path="/analytics" element={<ErrorBoundary section="Analytics"><Analytics /></ErrorBoundary>} />
+            <Route path="/analytics" element={<ErrorBoundary section="Analytics"><ProtectedRoute><Analytics /></ProtectedRoute></ErrorBoundary>} />
           </Routes>
         </ErrorBoundary>
       </motion.div>
