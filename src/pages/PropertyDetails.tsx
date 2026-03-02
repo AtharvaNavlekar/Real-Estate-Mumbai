@@ -282,9 +282,9 @@ export default function PropertyDetails() {
               <h3 className="text-2xl font-display font-black text-white mb-2">Financial Modeler</h3>
               <p className="text-slate-400 text-sm font-medium mb-8">Visualize your mortgage payload and interest distribution.</p>
 
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
+              <div className="space-y-8">
                 {/* Sliders */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md">
                     <div className="flex justify-between mb-4 items-end gap-2">
                       <label className="text-xs font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap">Principal</label>
@@ -334,9 +334,9 @@ export default function PropertyDetails() {
                   </div>
                 </div>
 
-                {/* Donut Chart & Results */}
-                <div className="flex flex-col items-center justify-center">
-                  <div className="relative w-48 h-48 mb-6">
+                {/* Donut Chart & Legends - Side by Side */}
+                <div className="flex items-center gap-6">
+                  <div className="relative w-40 h-40 shrink-0">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie
@@ -345,8 +345,8 @@ export default function PropertyDetails() {
                           cy="50%"
                           startAngle={90}
                           endAngle={-270}
-                          innerRadius={65}
-                          outerRadius={85}
+                          innerRadius={50}
+                          outerRadius={70}
                           paddingAngle={2}
                           dataKey="value"
                           stroke="none"
@@ -355,28 +355,23 @@ export default function PropertyDetails() {
                             <Cell key={`cell-${index}`} fill={entry.color} />
                           ))}
                         </Pie>
-                        <Tooltip
-                          formatter={(value: number | undefined) => `₹ ${((value ?? 0) / 100000).toFixed(1)} L`}
-                          contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', fontWeight: 'bold', color: '#fff' }}
-                          itemStyle={{ color: '#fff' }}
-                        />
                       </PieChart>
                     </ResponsiveContainer>
                     <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mt-2 whitespace-nowrap">Est. EMI</p>
-                      <p className="text-xl font-black text-white whitespace-nowrap">₹ {(calculateEMI() / 100000).toFixed(2)}L</p>
+                      <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap">Est. EMI</p>
+                      <p className="text-lg font-black text-white whitespace-nowrap">₹ {(calculateEMI() / 100000).toFixed(2)}L</p>
                     </div>
                   </div>
 
                   {/* Legends */}
-                  <div className="w-full space-y-3 bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-sm">
+                  <div className="flex-1 space-y-3 bg-black/40 p-4 rounded-xl border border-white/5 text-sm">
                     {emiData.map((data, idx) => (
-                      <div key={idx} className="flex justify-between items-center pr-2 gap-2">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div className="w-3 h-3 rounded-full shadow-sm shrink-0" style={{ backgroundColor: data.color }}></div>
-                          <span className="text-slate-300 font-medium font-sans text-xs truncate">{data.name}</span>
+                      <div key={idx} className="flex items-center gap-3">
+                        <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: data.color }}></div>
+                        <div>
+                          <p className="text-slate-400 text-[11px] font-medium">{data.name}</p>
+                          <p className="font-bold text-white text-sm whitespace-nowrap">₹ {(data.value / 10000000).toFixed(2)} Cr</p>
                         </div>
-                        <span className="font-bold text-white whitespace-nowrap shrink-0">₹ {(data.value / 10000000).toFixed(2)} Cr</span>
                       </div>
                     ))}
                   </div>
