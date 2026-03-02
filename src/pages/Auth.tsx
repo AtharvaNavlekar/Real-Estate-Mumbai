@@ -61,15 +61,8 @@ export default function Auth() {
             {/* Left Column - Form */}
             <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:flex-none lg:w-1/2 lg:px-20 xl:px-24">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
-                    <Link to="/" className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-v-blue transition-colors mb-12">
-                        <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
-                    </Link>
-
                     <div>
-                        <div className="w-12 h-12 bg-v-black rounded-full flex items-center justify-center shadow-inner mb-6">
-                            <BadgeCheck className="w-7 h-7 text-white drop-shadow-sm" aria-hidden="true" />
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-display font-bold text-v-black tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-display font-bold text-v-black tracking-tight mt-12">
                             {authMode === 'login' ? 'Welcome back' : 'Create account'}
                         </h1>
                         <p className="mt-4 text-slate-500">
