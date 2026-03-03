@@ -131,7 +131,7 @@ export default function NewProjects() {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 border-t border-slate-100 pt-6">
+                    <div className="flex gap-2 border-t border-slate-100 pt-6 overflow-x-auto pb-2 sm:flex-wrap scrollbar-hide">
                         {filterOptions.map(option => (
                             <button
                                 key={option}

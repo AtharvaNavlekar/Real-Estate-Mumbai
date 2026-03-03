@@ -7,7 +7,7 @@ export default function FloatingActions() {
     const [showForm, setShowForm] = useState(false);
 
     return (
-        <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4 font-sans">
+        <div className="fixed bottom-6 right-4 sm:right-6 z-[100] flex flex-col items-end gap-3 sm:gap-4 font-sans">
 
             <AnimatePresence>
                 {/* Form Modal */}
@@ -71,9 +71,9 @@ export default function FloatingActions() {
             {!showForm && (
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className={`w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-slate-200 text-slate-600 rotate-90' : 'bg-v-blue text-white hover:scale-105'}`}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-slate-200 text-slate-600 rotate-90' : 'bg-v-blue text-white hover:scale-105'}`}
                 >
-                    {isOpen ? <X className="w-7 h-7" /> : <MessageCircle className="w-7 h-7" />}
+                    {isOpen ? <X className="w-6 h-6 sm:w-7 sm:h-7" /> : <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />}
                 </button>
             )}
         </div>

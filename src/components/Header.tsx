@@ -103,22 +103,39 @@ export default function Header() {
       {/* Mobile Menu */}
       {
         mobileOpen && (
-          <div className="fixed inset-0 bg-white z-30 pt-28 px-6 flex flex-col gap-4 text-lg font-bold text-v-black lg:hidden overflow-y-auto">
-            <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">Home</Link>
-            <Link to="/properties?intent=buy" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.buy')}</Link>
-            <Link to="/properties?intent=rent" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.rent')}</Link>
-            <Link to="/about" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">About Us</Link>
-            <Link to="/new-projects" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.newProjects')}</Link>
-            <Link to="/neighborhoods" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.neighborhoods')}</Link>
-            <Link to="/market-rates" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.marketRates')}</Link>
-            <Link to="/property-management" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.ownerPortal')}</Link>
-            {user ? (
+          <div className="fixed inset-0 bg-white z-30 pt-24 px-6 flex flex-col gap-1 text-lg font-bold text-v-black lg:hidden overflow-y-auto pb-32">
+            {/* Primary CTA */}
+            <Link to="/post-property" onClick={() => setMobileOpen(false)} className="w-full bg-v-black text-white py-4 rounded-2xl text-center text-base font-bold shadow-md mb-4 block">
+              Post Property
+            </Link>
+
+            {!user && (
+              <Link to="/auth" onClick={() => setMobileOpen(false)} className="w-full bg-v-blue text-white py-3.5 rounded-2xl text-center text-base font-bold shadow-sm mb-6 block">
+                {t('nav.signIn')}
+              </Link>
+            )}
+
+            {/* Browse */}
+            <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mt-2 mb-2 px-1">Browse</span>
+            <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> Home</Link>
+            <Link to="/properties?intent=buy" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.buy')}</Link>
+            <Link to="/properties?intent=rent" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.rent')}</Link>
+            <Link to="/new-projects" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.newProjects')}</Link>
+
+            {/* Explore */}
+            <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mt-4 mb-2 px-1">Explore</span>
+            <Link to="/about" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><User className="w-4 h-4 text-slate-400" /> About Us</Link>
+            <Link to="/neighborhoods" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.neighborhoods')}</Link>
+            <Link to="/market-rates" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.marketRates')}</Link>
+            <Link to="/owner-portal" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.ownerPortal')}</Link>
+
+            {user && (
               <>
-                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.dashboard')}</Link>
-                <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="py-3 text-red-500 text-left">{t('nav.logout')}</button>
+                {/* Account */}
+                <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mt-4 mb-2 px-1">Account</span>
+                <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100 flex items-center gap-3"><Heart className="w-4 h-4 text-slate-400" /> {t('nav.dashboard')}</Link>
+                <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="py-3 text-red-500 text-left flex items-center gap-3"><LogOut className="w-4 h-4" /> {t('nav.logout')}</button>
               </>
-            ) : (
-              <Link to="/auth" onClick={() => setMobileOpen(false)} className="py-3 border-b border-slate-100">{t('nav.signIn')}</Link>
             )}
           </div>
         )

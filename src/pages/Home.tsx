@@ -107,19 +107,19 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center max-w-5xl mx-auto mb-16"
+            className="text-center max-w-5xl mx-auto mb-10 sm:mb-16"
           >
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <BadgeCheck className="w-6 h-6 text-v-blue" />
-              <span className="font-bold tracking-widest uppercase text-sm text-v-black">
+            <div className="flex items-center justify-center gap-2 mb-6 sm:mb-8">
+              <BadgeCheck className="w-5 h-5 sm:w-6 sm:h-6 text-v-blue" />
+              <span className="font-bold tracking-widest uppercase text-xs sm:text-sm text-v-black">
                 The New Standard of Real Estate
               </span>
             </div>
-            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-bold text-v-black leading-[0.85] tracking-tighter mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-[10rem] font-display font-bold text-v-black leading-[0.85] tracking-tighter mb-6 sm:mb-8">
               VERIFIED.<br />
-              <span className="text-slate-300">REAL ESTATE.</span>
+              <span className="text-slate-400">REAL ESTATE.</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-medium px-2">
               Experience the future of property search. AI-driven, data-backed, and 100% verified listings in Mumbai's most premium neighborhoods.
             </p>
           </motion.div>
@@ -141,12 +141,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7 }}
-        className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
+        className="py-16 sm:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
       >
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
           <div>
-            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Curated Selection</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-v-black tracking-tight">Featured Properties</h2>
+            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">Curated Selection</span>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-v-black tracking-tight">Featured Properties</h2>
           </div>
           <Link to="/properties" className="flex items-center gap-2 text-v-black font-bold hover:text-v-blue transition-colors group uppercase tracking-wider text-sm">
             View All Properties
@@ -179,7 +179,7 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="py-32 px-4 md:px-8 bg-v-black w-full"
+        className="py-16 sm:py-32 px-4 md:px-8 bg-v-black w-full"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -187,10 +187,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-20"
           >
-            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Location Intelligence</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">Explore Micro-Markets</h2>
+            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">Location Intelligence</span>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white mb-4 sm:mb-6 tracking-tight">Explore Micro-Markets</h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">
               Discover premium neighborhoods across Mumbai. Our data-driven insights help you make informed investment decisions.
             </p>
@@ -240,12 +240,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7 }}
-        className="py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
+        className="py-16 sm:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
           <div>
-            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">The Advantage</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-v-black mb-8 tracking-tight leading-tight">Redefining Real Estate with Intelligence</h2>
+            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">The Advantage</span>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-v-black mb-6 sm:mb-8 tracking-tight leading-tight">Redefining Real Estate with Intelligence</h2>
             <p className="text-slate-600 mb-12 leading-relaxed text-lg">
               We go beyond traditional listings. Our platform leverages AI and predictive analytics to match you with properties that fit your lifestyle and investment goals perfectly.
             </p>
@@ -304,12 +304,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7 }}
-        className="py-24 px-4 md:px-8 max-w-7xl mx-auto"
+        className="py-16 sm:py-24 px-4 md:px-8 max-w-7xl mx-auto"
       >
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 sm:mb-16 gap-4">
           <div>
-            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-4 block">Client Success</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-v-black tracking-tight">Stories of Trust.</h2>
+            <span className="text-v-blue font-bold tracking-widest uppercase text-xs mb-3 sm:mb-4 block">Client Success</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-v-black tracking-tight">Stories of Trust.</h2>
           </div>
         </div>
 

@@ -99,14 +99,14 @@ export default function AISearchBar() {
       </form>
 
       {/* Quick filter pills */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-        <span className="hidden sm:inline-block text-xs font-bold text-slate-400 uppercase tracking-widest mr-2">Trending:</span>
+      <div className="flex items-center gap-3 mt-6 sm:mt-8 overflow-x-auto pb-2 px-1 sm:justify-center sm:flex-wrap scrollbar-hide">
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mr-1 shrink-0">Trending:</span>
         {['3 BHK in Bandra', 'Sea-facing Worli', 'Under ₹2 Cr Powai', 'Penthouse BKC'].map((chip) => (
           <button
             key={chip}
             type="button"
             onClick={() => { setQuery(chip); }}
-            className="px-5 py-2.5 rounded-full text-sm font-medium bg-white/80 backdrop-blur-sm text-slate-600 hover:text-v-blue border border-slate-200 shadow-sm hover:shadow hover:border-blue-200 transition-all cursor-pointer"
+            className="px-5 py-2.5 rounded-full text-sm font-medium bg-white/80 backdrop-blur-sm text-slate-600 hover:text-v-blue border border-slate-200 shadow-sm hover:shadow hover:border-blue-200 transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             {chip}
           </button>

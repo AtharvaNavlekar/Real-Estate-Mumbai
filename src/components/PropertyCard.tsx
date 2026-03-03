@@ -45,9 +45,9 @@ export default function PropertyCard({ image, price, title, location, beds, bath
   const displayMetrics: PropertyMetric[] = metrics || [];
 
   if (!metrics && (beds !== undefined || baths !== undefined || sqft !== undefined)) {
-    if (beds !== undefined) displayMetrics.push({ icon: Bed, value: beds });
-    if (baths !== undefined) displayMetrics.push({ icon: Bath, value: baths });
-    if (sqft !== undefined) displayMetrics.push({ icon: Square, value: sqft });
+    if (beds !== undefined) displayMetrics.push({ icon: Bed, value: `${beds} Beds` });
+    if (baths !== undefined) displayMetrics.push({ icon: Bath, value: `${baths} Bath` });
+    if (sqft !== undefined) displayMetrics.push({ icon: Square, value: `${sqft} sqft` });
   }
 
   return (
@@ -63,6 +63,7 @@ export default function PropertyCard({ image, price, title, location, beds, bath
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {isFeatured && (
