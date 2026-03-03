@@ -90,120 +90,47 @@ export default function Home() {
 
   return (
     <main className="flex-1 flex flex-col">
-      <section className="relative min-h-[100vh] flex items-center justify-center pt-24 pb-24 px-4 overflow-hidden bg-[#050510]">
-        {/* Background Image with cinematic overlay */}
+      <section className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden">
+        {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop"
             alt="Mumbai Luxury Real Estate"
-            className="w-full h-full object-cover scale-110"
+            className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
-          {/* Dark cinematic gradient — lets the image breathe through */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/80 via-[#050510]/70 to-[#050510]/95"></div>
-          {/* Accent blue glow in top-right corner */}
-          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[120px]"></div>
-          {/* Accent warm glow in bottom-left */}
-          <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px]"></div>
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
+          <div className="absolute inset-0 bg-v-gray/90 backdrop-blur-sm"></div>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
-          {/* Floating stat pills */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-3 mb-10"
-          >
-            {[
-              { label: '2,400+ Verified Listings', icon: '🏠' },
-              { label: 'AI-Powered Search', icon: '✨' },
-              { label: 'RERA Compliant', icon: '🛡️' },
-            ].map((pill, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08] backdrop-blur-md text-sm text-white/70 font-medium"
-              >
-                <span>{pill.icon}</span>
-                <span>{pill.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Main headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center max-w-5xl mx-auto mb-8"
+            className="text-center max-w-5xl mx-auto mb-16"
           >
-            <div className="flex items-center justify-center gap-2.5 mb-8">
-              <BadgeCheck className="w-5 h-5 text-blue-400" />
-              <span className="font-bold tracking-[0.2em] uppercase text-xs text-blue-300/80">
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <BadgeCheck className="w-6 h-6 text-v-blue" />
+              <span className="font-bold tracking-widest uppercase text-sm text-v-black">
                 The New Standard of Real Estate
               </span>
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] font-display font-bold leading-[0.85] tracking-tighter mb-8">
-              <span className="text-white">VERIFIED.</span><br />
-              <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-violet-400 bg-clip-text text-transparent">REAL ESTATE.</span>
+            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-bold text-v-black leading-[0.85] tracking-tighter mb-8">
+              VERIFIED.<br />
+              <span className="text-slate-300">REAL ESTATE.</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
-              Experience the future of property search. AI-driven, data-backed, and
-              <span className="text-white font-semibold"> 100% verified</span> listings in Mumbai's most premium neighborhoods.
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-medium">
+              Experience the future of property search. AI-driven, data-backed, and 100% verified listings in Mumbai's most premium neighborhoods.
             </p>
           </motion.div>
 
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex items-center justify-center gap-6 sm:gap-10 mb-12 flex-wrap"
-          >
-            {[
-              { value: '₹50K Cr+', label: 'Portfolio Value' },
-              { value: '15+', label: 'Years Experience' },
-              { value: '4,200+', label: 'Happy Families' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">{stat.value}</div>
-                <div className="text-[11px] uppercase tracking-widest text-slate-500 font-semibold mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Search bar */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="w-full"
           >
             <AISearchBar />
-          </motion.div>
-
-          {/* Trusted by strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-14 flex flex-col items-center gap-4"
-          >
-            <span className="text-[11px] uppercase tracking-[0.25em] text-slate-600 font-semibold">Trusted by professionals from</span>
-            <div className="flex items-center gap-8 text-slate-500/60 font-display font-bold text-lg tracking-tight">
-              <span>Knight Frank</span>
-              <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-              <span>JLL India</span>
-              <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-              <span>Anarock</span>
-              <span className="hidden sm:block w-1 h-1 rounded-full bg-slate-700"></span>
-              <span className="hidden sm:block">CBRE</span>
-            </div>
           </motion.div>
         </div>
       </section>
