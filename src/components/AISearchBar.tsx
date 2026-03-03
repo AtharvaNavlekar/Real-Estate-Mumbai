@@ -56,11 +56,11 @@ export default function AISearchBar() {
     <div className="w-full max-w-4xl mx-auto md:px-4">
       <form onSubmit={handleSearch} className="relative group w-full">
         {/* Glowing backdrop effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-v-blue/40 via-blue-400/20 to-v-blue/40 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-violet-500/20 to-blue-500/30 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
 
-        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white/95 backdrop-blur-xl md:rounded-full rounded-[2rem] shadow-2xl border border-white/20 overflow-hidden p-2 gap-2">
+        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white/[0.08] backdrop-blur-2xl md:rounded-full rounded-[2rem] shadow-2xl border border-white/[0.1] overflow-hidden p-2 gap-2">
           {/* Sparkle Icon */}
-          <div className="hidden md:flex pl-6 pr-2 items-center text-v-blue">
+          <div className="hidden md:flex pl-6 pr-2 items-center text-blue-400">
             <Sparkles className="w-6 h-6 animate-pulse" />
           </div>
 
@@ -71,7 +71,7 @@ export default function AISearchBar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Ask AI: Find a verified 3BHK in BKC under 5 Cr..."
-              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-v-black bg-transparent border-none focus:outline-none focus:ring-0 placeholder-slate-400 font-medium"
+              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-white bg-transparent border-none focus:outline-none focus:ring-0 placeholder-slate-500 font-medium"
             />
           </div>
 
@@ -79,7 +79,7 @@ export default function AISearchBar() {
           <button
             type="submit"
             disabled={isSearching}
-            className="w-full md:w-auto bg-v-blue hover:bg-blue-600 text-white px-8 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-blue-500/30"
+            className="w-full md:w-auto bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-8 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-blue-500/25"
           >
             {isSearching ? (
               <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
