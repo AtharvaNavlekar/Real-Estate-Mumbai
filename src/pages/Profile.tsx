@@ -35,6 +35,23 @@ export default function Profile() {
         }
     };
 
+    const handleShare = async () => {
+        try {
+            if (navigator.share) {
+                await navigator.share({
+                    title: user.name,
+                    text: `Check out ${user.name}'s profile on Real Estate Mumbai`,
+                    url: window.location.href,
+                });
+            } else {
+                await navigator.clipboard.writeText(window.location.href);
+                alert("Profile link copied to clipboard");
+            }
+        } catch (err) {
+            console.error('Error sharing:', err);
+        }
+    };
+
     const properties = [
         { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop", price: "12.5 Cr", title: "Signia High Luxurious Sky Villa", loc: "South Mumbai", status: "Active" },
         { img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop", price: "8.5 Cr", title: "3 BHK Premium Residence", loc: "BKC, Mumbai", status: "Under Offer" },
@@ -61,12 +78,12 @@ export default function Profile() {
 
                     {/* Share / Edit Buttons */}
                     <div className="absolute top-6 right-6 flex items-center gap-3 hidden sm:flex">
-                        <button className="p-2.5 bg-slate-50 hover:bg-slate-100 rounded-full text-slate-600 transition-colors">
+                        <button onClick={handleShare} className="p-2.5 bg-slate-50 hover:bg-slate-100 rounded-full text-slate-600 transition-colors cursor-pointer ring-1 ring-slate-200">
                             <Share2 className="w-5 h-5" />
                         </button>
-                        <button className="bg-v-black hover:bg-v-blue text-white px-5 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2">
+                        <Link to="/settings" className="bg-v-black hover:bg-v-blue text-white px-5 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2 cursor-pointer shadow-md">
                             <Edit className="w-4 h-4" /> Edit
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Avatar */}
@@ -113,10 +130,10 @@ export default function Profile() {
 
                     {/* Mobile Actions */}
                     <div className="flex items-center gap-4 mt-8 w-full sm:hidden">
-                        <button className="flex-1 bg-v-black text-white py-3 rounded-full text-sm font-bold shadow-sm">
-                            Edit Profile
-                        </button>
-                        <button className="p-3 bg-slate-50 border border-slate-200 rounded-full text-slate-600">
+                        <Link to="/settings" className="flex-1 bg-v-black text-white py-3 rounded-full text-sm font-bold shadow-sm flex items-center justify-center gap-2">
+                            <Edit className="w-4 h-4" /> Edit Profile
+                        </Link>
+                        <button onClick={handleShare} className="p-3 bg-slate-50 border border-slate-200 rounded-full text-slate-600">
                             <Share2 className="w-5 h-5" />
                         </button>
                     </div>
