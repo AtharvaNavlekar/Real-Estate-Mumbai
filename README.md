@@ -82,19 +82,17 @@ Mumbai's real estate market is one of the most dynamic and complex in the world 
 |---------|--------|-------|
 | Multi-page SPA routing | Implemented | React Router DOM |
 | Luxury animated UI | Implemented | Framer Motion, Tailwind |
-| Property listing cards | Implemented | Mock data via `src/data/` |
-| Neighborhood guides | Implemented | Static editorial content |
-| Market analytics charts | Implemented | Recharts, mock data |
+| Property listing cards | Implemented | Dynamic indexing via `westernLineMarketData.json` |
+| Neighborhood guides | Implemented | Hyper-local dynamic routing and Recharts analytics |
+| Market analytics charts | Implemented | Interactive Recharts dashboard with tooltips |
 | Smart Search (AI query parsing) | Implemented | Gemini API via server-side proxy |
+| Global Favorites System | Implemented | Persistent LocalStorage Context with Portfolio Analytics |
+| Completely Air-Gapped Admin Portal | Implemented | Sovereign Vite React app (`/admin-portal`) with Alpine White styling |
 | User authentication (UI) | Implemented | Form + localStorage session |
 | User auth (real backend) | **Roadmap** | Needs Supabase Auth / Clerk |
-| Real property database | **Roadmap** | Replace mock data with API |
+| Real property database | **Roadmap** | Replace local JSON with REST API |
 | Enquiry inbox / messaging | **Roadmap** | UI only, no delivery system |
-| Viewing scheduler | **Roadmap** | UI only, no calendar backend |
-| Agent CRM pipeline | **Roadmap** | UI only, no data persistence |
-| Push notifications | **Roadmap** | Web API integrated, no server push |
 | PWA (offline support) | Implemented | Service worker + manifest.json |
-| Property comparison | Implemented | CompareBar + side-by-side modal |
 | Error boundaries | Implemented | All routes protected |
 
 See [`CUSTOMIZATION.md`](CUSTOMIZATION.md) for a complete guide on connecting a real backend.
@@ -126,23 +124,22 @@ See [`CUSTOMIZATION.md`](CUSTOMIZATION.md) for a complete guide on connecting a 
 - Metrics include: average price per sq. ft., YoY appreciation, inventory count, days-on-market average, and new supply pipeline
 - Downloadable data snapshots for research and investment analysis
 
-### Buyer Portal
-- Personalized dashboard with saved searches, wishlisted properties, and scheduled viewings
-- Enquiry management — track all agent conversations from a single inbox
-- EMI calculator and affordability estimator built in
-- Document checklist for purchase readiness (stamp duty, registration, home loan)
+### Global Favorites & Portfolio Analytics
+- **Persistent Shortlists:** One-click save functionality globally integrated via Context API and HTML5 LocalStorage.
+- **Portfolio Analytics Dashboard:** The `/favorites` route automatically calculates the integer Total Value and Average Price of all saved real estate assets using a custom `parsePriceToCrores()` utility.
+- **Dynamic Header Notifier:** Smart badge indicators tracking active portfolio items.
 
-### Owner / Seller Portal
-- Self-service listing management — post, edit, unpublish, or promote properties
-- Performance analytics for each listing: views, shortlists, and enquiry conversion rates
-- Enquiry inbox with response tracking
-- Price benchmarking tool: compare your listed price against nearby comparable properties
+### Institutional Market Rates Dashboard
+- **Immersive Dark Hero:** High-contrast `bg-v-black` hero section featuring structural grid-lines and screen-blended glowing orbs.
+- **Interactive Recharts Tooltips:** Custom React tooltips rendering sharp, dark-glass pills with bright emerald mono-font price tags over 5-year growth charts.
+- **Asymmetrical Demographics Grid:** Massive, typography-driven impact grids styling numbers aggressively alongside background watermarks.
 
-### Agent Portal
-- Full CRM dashboard for client and deal pipeline management
-- Multi-property listing management with bulk actions
-- Activity feed: recent enquiries, viewings, and client messages
-- Performance scorecards: ratings, response time, active listings count, and revenue tracked
+### Air-Gapped Owner Admin Portal
+- **Sovereign Application:** A completely separate React Vite application (`/admin-portal`) ensuring absolute security and encapsulation from customer crossovers.
+- **Premium "Alpine White" Aesthetic:** A bright, luxurious light mode featuring frosty white glass panels (`backdrop-blur-2xl`), subtle gray background depths, and staggered Framer Motion spring physics.
+- **Operational Command Center:** A massive central grid utilizing Recharts for an immersive dual-axis area chart matching Network Valuation against Lead Volume trajectories over 12 months.
+- **Map-First Spacial Discovery:** The Master Inventory utilizes a 50/50 split-pane rendering dynamic property node maps directly beside granular 10-column data grids.
+- **Tactical CRM War Room (`Leads.tsx`):** A neural engine analyzing high-net-worth individual acquisition flow, featuring AI Analysis Matrices for 'Conversion Probability' and 'Flight Risk Assessment', along with full-bleed target asset imagery.
 
 ### Settings Page
 - Account preferences: name, contact info, profile photo, and pronouns
@@ -190,14 +187,17 @@ Real-Estate-Mumbai/
 │   ├── pages/                  # Route-level page components
 │   │   ├── Home.tsx            # Landing page with hero and featured listings
 │   │   ├── Properties.tsx      # Full property listings browse page
-│   │   ├── PropertyDetail.tsx  # Single property detail view
-│   │   ├── Neighborhoods.tsx   # Neighborhood explorer
-│   │   ├── MarketRates.tsx     # Analytics and market trend charts
-│   │   ├── Dashboard.tsx       # Buyer dashboard
-│   │   ├── OwnerPortal.tsx     # Seller / owner management portal
-│   │   ├── AgentPortal.tsx     # Agent CRM portal
+│   │   ├── PropertyDetail.tsx  # Dynamic property detail view via Route IDs
+│   │   ├── Neighborhoods.tsx   # Neighborhood explorer index
+│   │   ├── NeighborhoodDetails.tsx # Hyper-local data-driven insights per region
+│   │   ├── MarketRates.tsx     # Analytics and market trend Recharts dashboard
+│   │   ├── Favorites.tsx       # Portfolio Analytics and persistent wishlist
 │   │   ├── Profile.tsx         # User profile page
 │   │   └── Settings.tsx        # Account and app settings
+│   │
+│   ├── admin-portal/           # AIR-GAPPED ADMIN PLATFORM (Independent Vite Instance)
+│   │   ├── src/pages/          # Admin Routes: Dashboard, Leads CRM, Inventory Index
+│   │   └── src/components/     # Admin-specific Layouts, Airlock Logins, and Command Palettes
 │   │
 │   ├── hooks/                  # Custom React hooks
 │   │   ├── useSearch.ts        # Gemini-powered search logic
@@ -305,21 +305,27 @@ GEMINI_API_KEY=your_actual_gemini_api_key_here
 
 ---
 
-### Running the App
+### Running the Architectures
 
-Start the Vite development server with hot module replacement (HMR):
+This project consists of **two sovereign frontend applications**: the customer-facing real estate platform, and the highly secure, air-gapped Admin Portal.
+
+#### 1. Starting the Customer Platform
+Start the main Vite development server with hot module replacement (HMR):
 
 ```bash
 npm run dev
 ```
+Navigate to `http://localhost:3000` (or the port specified in your terminal).
 
-Once started, open your browser and navigate to:
+#### 2. Starting the Admin Portal
+The Admin Portal operates natively outside of the main routing engine for security. Open a second terminal window:
 
+```bash
+cd admin-portal
+npm install      # Install the admin-specific dependencies
+npm run dev
 ```
-http://localhost:3000
-```
-
-> The port may differ based on your system. Check the terminal output — Vite will display the exact local URL.
+Navigate to the secondary port provided (e.g., `http://localhost:5173`) to access the Alpine White command center.
 
 **Other available scripts:**
 
