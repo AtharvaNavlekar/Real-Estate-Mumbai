@@ -71,7 +71,7 @@ export default function AISearchBar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Ask AI: Find a verified 3BHK in BKC under 5 Cr..."
-              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-slate-800 bg-transparent border-none focus:outline-none focus:ring-0 placeholder-slate-400 font-medium"
+              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-slate-800 bg-transparent border-0 border-transparent focus:border-transparent focus:outline-none focus:ring-0 focus:shadow-none shadow-none placeholder-slate-400 font-medium"
             />
           </div>
 
