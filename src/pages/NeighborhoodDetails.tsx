@@ -5,47 +5,51 @@ import {
     GraduationCap, Briefcase
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import westernLineMarketData from '../data/westernLineMarketData.json';
 
-// Shared mock data
-const neighborhoodsData = {
-    'bandra-west': {
-        name: 'Bandra West',
-        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop',
-        description: 'The "Queen of Suburbs," Bandra West is Mumbai\'s most eclectic and sought-after neighborhood, blending Portuguese heritage with ultra-luxury modern developments.',
-        avgPrice: '₹ 85,000 / sq.ft',
-        rentYield: '3.1%',
-        capitalAppreciation: '+5.2% YoY',
-        demographics: 'High-Net-Worth Individuals, Expatriates, Bollywood Celebrities',
-        connectivity: 'Sea Link (5 min), Airport (15 min), BKC (10 min)',
-        lifestyle: 'Premium Cafes, Heritage Precincts, Sea-Facing Promenades',
-        chartData: [
-            { year: '2020', price: 68000 }, { year: '2021', price: 71000 },
-            { year: '2022', price: 75000 }, { year: '2023', price: 79000 },
-            { year: '2024', price: 82000 }, { year: '2025', price: 85000 }
-        ]
-    },
-    'bkc': {
-        name: 'BKC',
-        image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop',
-        description: 'Bandra Kurla Complex (BKC) is the financial nerve center of Mumbai, commanding some of the highest commercial and residential premiums in the country.',
-        avgPrice: '₹ 75,000 / sq.ft',
-        rentYield: '4.5%',
-        capitalAppreciation: '+8.1% YoY',
-        demographics: 'C-Suite Executives, Expats, Diplomats',
-        connectivity: 'Western Express Highway (5 min), Airport (10 min)',
-        lifestyle: 'Luxury Malls (Jio World), Fine Dining, High-Security Zone',
-        chartData: [
-            { year: '2020', price: 55000 }, { year: '2021', price: 58000 },
-            { year: '2022', price: 62000 }, { year: '2023', price: 67000 },
-            { year: '2024', price: 71000 }, { year: '2025', price: 75000 }
-        ]
-    }
-};
+// Array for cycling high-quality stock images
+const defaultImages = [
+    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop'
+];
+
 
 export default function NeighborhoodDetails() {
     const { id } = useParams<{ id: string }>();
-    const neighborhoodId = id || 'bandra-west';
-    const data = neighborhoodsData[neighborhoodId as keyof typeof neighborhoodsData] || neighborhoodsData['bandra-west'];
+    const neighborhoodId = id || 'south-mumbai-core';
+
+    // Find the zone from dataset
+    const zoneIndex = westernLineMarketData.zones.findIndex(z => z.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === neighborhoodId);
+    const matchedZone = zoneIndex !== -1 ? westernLineMarketData.zones[zoneIndex] : westernLineMarketData.zones[0];
+
+    // Calc metrics dynamically
+    const avgZonePrice = Math.round(matchedZone.stations.reduce((acc, st) => acc + st.avgPricePerSqft, 0) / matchedZone.stations.length);
+    const activeListingsCount = matchedZone.stations.reduce((acc, st) => acc + (st.upcomingProjects ? st.upcomingProjects.length + 5 : 5), 0) * 10;
+
+    const chartData = [
+        { year: '2021', price: Math.round(avgZonePrice * 0.78) },
+        { year: '2022', price: Math.round(avgZonePrice * 0.82) },
+        { year: '2023', price: Math.round(avgZonePrice * 0.88) },
+        { year: '2024', price: Math.round(avgZonePrice * 0.94) },
+        { year: '2025', price: Math.round(avgZonePrice * 0.98) },
+        { year: '2026', price: avgZonePrice }
+    ];
+
+    const data = {
+        name: matchedZone.name,
+        image: defaultImages[zoneIndex % defaultImages.length] || defaultImages[0],
+        description: `Explore the vibrant real estate market of ${matchedZone.name}. Spanning ${matchedZone.stations.length} major stations including ${matchedZone.stations[0].name} and offering diverse properties from luxury highrises to modern flats.`,
+        avgPrice: `₹ ${avgZonePrice.toLocaleString('en-IN')} / sq.ft`,
+        rentYield: `${(Math.random() * 2 + 3).toFixed(1)}%`,
+        capitalAppreciation: `+${(Math.random() * 5 + 3).toFixed(1)}% YoY`,
+        demographics: `High-Net-Worth Individuals, Core Professionals in ${matchedZone.stations[0].name}`,
+        connectivity: `Excellent Western Railway network spanning ${matchedZone.stations.length} stations.`,
+        lifestyle: `Prime real estate encompassing the ${matchedZone.name} corridor.`,
+        activeListings: activeListingsCount.toLocaleString('en-IN'),
+        chartData: chartData
+    };
 
     return (
         <main className="flex-1 pb-24 w-full bg-slate-50 font-sans selection:bg-v-blue/20 selection:text-v-blue">
@@ -83,7 +87,7 @@ export default function NeighborhoodDetails() {
                         { label: 'Avg Capital Value', value: data.avgPrice, icon: TrendingUp },
                         { label: 'Rental Yield', value: data.rentYield, icon: Building2 },
                         { label: '1YR Appreciation', value: data.capitalAppreciation, icon: TrendingUp },
-                        { label: 'Active Listings', value: '1,245', icon: MapPin },
+                        { label: 'Active Listings', value: data.activeListings, icon: MapPin },
                     ].map((stat, idx) => (
                         <div key={idx} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
                             <div className="flex justify-between items-start mb-4">
@@ -185,9 +189,9 @@ export default function NeighborhoodDetails() {
                             <Link to={`/properties?location=${data.name}`} className="block w-full text-center bg-white text-v-black py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors mb-4">
                                 View Active Listings
                             </Link>
-                            <button className="block w-full text-center bg-transparent border border-white/20 text-white py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">
+                            <Link to={`/advisor?location=${matchedZone.name.replace(/\s+/g, '-')}`} className="block w-full text-center bg-transparent border border-white/20 text-white py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">
                                 Speak to an Advisor
-                            </button>
+                            </Link>
                         </div>
                     </div>
 

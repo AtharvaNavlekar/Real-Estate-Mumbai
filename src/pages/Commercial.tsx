@@ -90,6 +90,7 @@ export default function Commercial() {
                         .map((item) => (
                             <Link to={`/property/${item.id}`} key={item.id} className="block">
                                 <PropertyCard
+                                    id={item.id}
                                     title={item.title}
                                     location={item.loc}
                                     image={item.image}

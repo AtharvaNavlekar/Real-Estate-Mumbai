@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Menu, Heart, User, BadgeCheck, X, ChevronDown, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useFavorites } from '../context/FavoritesContext';
 
 type Language = 'en' | 'hi' | 'mr';
 
 export default function Header() {
   const { user, logout } = useAuth();
   const { t } = useLanguage();
+  const { favorites } = useFavorites();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -33,19 +35,23 @@ export default function Header() {
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-bold text-v-black/90 drop-shadow-md" aria-label="Main navigation">
-          <Link to="/about" className="hover:text-v-blue transition-colors">About Us</Link>
-          <Link to="/new-projects" className="hover:text-v-blue transition-colors">{t('nav.newProjects')}</Link>
-          <Link to="/neighborhoods" className="hover:text-v-blue transition-colors">{t('nav.neighborhoods')}</Link>
-          <Link to="/market-rates" className="hover:text-v-blue transition-colors">{t('nav.marketRates')}</Link>
-          <Link to="/owner-portal" className="hover:text-v-blue transition-colors">{t('nav.ownerPortal')}</Link>
+          <Link to="/about" className="hover:text-v-blue transition-colors animated-link">About Us</Link>
+          <Link to="/new-projects" className="hover:text-v-blue transition-colors animated-link">{t('nav.newProjects')}</Link>
+          <Link to="/neighborhoods" className="hover:text-v-blue transition-colors animated-link">{t('nav.neighborhoods')}</Link>
+          <Link to="/market-rates" className="hover:text-v-blue transition-colors animated-link">{t('nav.marketRates')}</Link>
+          <Link to="/CEO" className="hover:text-v-blue transition-colors animated-link">{t('nav.ownerPortal')}</Link>
         </nav>
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-3">
 
-
-          <Link to="/dashboard" className="p-2 text-slate-600 hover:text-v-black transition-colors" aria-label="Saved properties">
-            <Heart className="w-5 h-5" />
+          <Link to="/favorites" className="relative p-2 text-slate-400 hover:text-amber-500 transition-colors" aria-label="Saved properties">
+            <Heart className="w-5 h-5" fill={favorites.length > 0 ? "currentColor" : "none"} />
+            {favorites.length > 0 && (
+              <span className="absolute top-1 right-1 flex items-center justify-center w-3 h-3 bg-red-500 text-white text-[8px] font-bold rounded-full border-[1.5px] border-white">
+                {favorites.length}
+              </span>
+            )}
           </Link>
 
           {!user ? (
@@ -67,7 +73,7 @@ export default function Header() {
               </button>
               <div className="absolute top-full right-0 w-44 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2 translate-y-2 group-hover:translate-y-0 z-50">
                 <span className="px-4 py-2 text-xs text-slate-400 font-medium truncate">{user.name}</span>
-                <Link to="/dashboard" className="px-4 py-2 hover:bg-slate-50 text-slate-600 font-medium hover:text-v-blue flex items-center gap-2">
+                <Link to="/favrate" className="px-4 py-2 hover:bg-slate-50 text-slate-600 font-medium hover:text-v-blue flex items-center gap-2">
                   <User className="w-4 h-4" /> {t('nav.dashboard')}
                 </Link>
                 <Link to="/profile" className="px-4 py-2 hover:bg-slate-50 text-slate-600 font-medium hover:text-v-blue flex items-center gap-2">

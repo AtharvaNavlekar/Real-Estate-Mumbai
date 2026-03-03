@@ -86,13 +86,13 @@ export default function SearchResults() {
 
   useEffect(() => {
     let filtered = searchProperties;
-    
+
     if (results?.intent?.location) {
       filtered = filtered.filter(p => p.location.toLowerCase().includes(results.intent.location.toLowerCase()));
     } else if (queryLocation) {
       filtered = filtered.filter(p => p.location.toLowerCase().includes(queryLocation.toLowerCase()));
     }
-    
+
     setFilteredProperties(filtered.length > 0 ? filtered : searchProperties);
   }, [results, queryLocation]);
 
@@ -102,7 +102,7 @@ export default function SearchResults() {
         <Link to="/" className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-v-blue transition-colors mb-8">
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Search
         </Link>
-        
+
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-v-black mb-4 tracking-tight">
@@ -111,29 +111,29 @@ export default function SearchResults() {
             {results?.intent ? (
               <div className="flex flex-wrap items-center gap-3 text-sm font-bold text-v-black mt-4">
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                  <MapPin className="w-4 h-4 text-v-blue"/> {results.intent.location}
+                  <MapPin className="w-4 h-4 text-v-blue" /> {results.intent.location}
                 </span>
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                  <HomeIcon className="w-4 h-4 text-v-blue"/> {results.intent.propertyType}
+                  <HomeIcon className="w-4 h-4 text-v-blue" /> {results.intent.propertyType}
                 </span>
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                  <IndianRupee className="w-4 h-4 text-v-blue"/> {results.intent.budget}
+                  <IndianRupee className="w-4 h-4 text-v-blue" /> {results.intent.budget}
                 </span>
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                  <Sparkles className="w-4 h-4 text-v-blue"/> {results.intent.features.join(', ')}
+                  <Sparkles className="w-4 h-4 text-v-blue" /> {results.intent.features.join(', ')}
                 </span>
               </div>
             ) : queryLocation ? (
               <div className="flex flex-wrap items-center gap-3 text-sm font-bold text-v-black mt-4">
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                  <MapPin className="w-4 h-4 text-v-blue"/> {queryLocation}
+                  <MapPin className="w-4 h-4 text-v-blue" /> {queryLocation}
                 </span>
               </div>
             ) : (
               <p className="text-slate-500 font-medium">Showing all available verified properties in Mumbai.</p>
             )}
           </div>
-          
+
           <button className="flex items-center gap-2 bg-white border border-black/10 text-v-black px-6 py-3 rounded-full text-sm font-bold hover:bg-v-gray transition-colors shadow-sm whitespace-nowrap">
             <SlidersHorizontal className="w-4 h-4" /> Filters
           </button>
@@ -143,7 +143,8 @@ export default function SearchResults() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredProperties.map((property) => (
           <Link to={`/property/${property.id}`} key={property.id}>
-            <PropertyCard 
+            <PropertyCard
+              id={property.id}
               image={property.image}
               price={property.price}
               title={property.title}

@@ -42,32 +42,16 @@ body {
   border-radius: 4px;
 }
 
-/* Custom Scrollbar */
+/* Hide scrollbar completely to make the website look full */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(17, 17, 17, 0.3);
-  border-radius: 9999px;
-  min-height: 40px;
-  border: 3px solid var(--color-v-gray);
-  background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(17, 17, 17, 0.6);
-}
-
-/* Firefox Scrollbar Fallback */
 html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(17, 17, 17, 0.3) transparent;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Premium Glassmorphism Utilities */
@@ -140,4 +124,28 @@ html {
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
   border-radius: 0.75rem;
+}
+
+/* Animated Underline Link */
+.animated-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animated-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

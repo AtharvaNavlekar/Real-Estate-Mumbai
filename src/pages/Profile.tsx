@@ -182,6 +182,7 @@ export default function Profile() {
                                 {properties.map((prop, idx) => (
                                     <PropertyCard
                                         key={idx}
+                                        id={7000 + idx}
                                         title={prop.title}
                                         location={prop.loc}
                                         price={prop.price}

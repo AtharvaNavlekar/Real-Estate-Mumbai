@@ -21,6 +21,7 @@ import NewProjects from './pages/NewProjects';
 import Neighborhoods from './pages/Neighborhoods';
 import NeighborhoodDetails from './pages/NeighborhoodDetails';
 import Advisory from './pages/Advisory';
+import Advisor from './pages/Advisor';
 import OwnerPortal from './pages/OwnerPortal';
 import Contact from './pages/Contact';
 import About from './pages/About';
@@ -40,10 +41,12 @@ import BuilderDetails from './pages/BuilderDetails';
 import NewsArticle from './pages/NewsArticle';
 import ProjectDetails from './pages/ProjectDetails';
 import Analytics from './pages/Analytics';
+import Favorites from './pages/Favorites';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { CompareProvider } from './context/CompareContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 
 export default function App() {
   return (
@@ -51,15 +54,18 @@ export default function App() {
       <AuthProvider>
         <LanguageProvider>
           <CompareProvider>
-            <Router>
-              <div className="min-h-screen bg-v-gray flex flex-col font-sans">
-                <ScrollToTop />
-                <Header />
-                <AnimatedRoutes />
-                <Footer />                <FloatingActions />
-                <CompareBar />
-              </div>
-            </Router>
+            <FavoritesProvider>
+              <Router>
+                <div className="min-h-screen bg-v-gray flex flex-col font-sans">
+                  <ScrollToTop />
+                  <Header />
+                  <AnimatedRoutes />
+                  <Footer />
+                  <FloatingActions />
+                  <CompareBar />
+                </div>
+              </Router>
+            </FavoritesProvider>
           </CompareProvider>
         </LanguageProvider>
       </AuthProvider>
@@ -89,7 +95,9 @@ function AnimatedRoutes() {
             <Route path="/new-projects" element={<ErrorBoundary section="New Projects"><NewProjects /></ErrorBoundary>} />
             <Route path="/neighborhoods" element={<ErrorBoundary section="Neighborhoods"><Neighborhoods /></ErrorBoundary>} />
             <Route path="/neighborhoods/:id" element={<ErrorBoundary section="Neighborhood Details"><NeighborhoodDetails /></ErrorBoundary>} />
+            <Route path="/advisor" element={<ErrorBoundary section="Advisor"><Advisor /></ErrorBoundary>} />
             <Route path="/advisory/:id" element={<ErrorBoundary section="Advisory"><Advisory /></ErrorBoundary>} />
+            <Route path="/favorites" element={<ErrorBoundary section="Favorites"><Favorites /></ErrorBoundary>} />
             <Route path="/list-property" element={<ErrorBoundary section="Owner Portal"><OwnerPortal /></ErrorBoundary>} />
             <Route path="/owner-portal" element={<ErrorBoundary section="Owner Portal"><OwnerPortal /></ErrorBoundary>} />
             <Route path="/property-management" element={<ErrorBoundary section="Property Management"><OwnerPortal /></ErrorBoundary>} />

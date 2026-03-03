@@ -7,10 +7,11 @@ import {
   ChevronDown, X, MapPin, Bed, Bath, Square, BadgeCheck,
   Heart, ArrowRight, ArrowLeftRight, TrendingUp, TrendingDown, Star
 } from 'lucide-react';
+import westernLineMarketData from '../data/westernLineMarketData.json';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const allProperties = [
+const baseProperties = [
   { id: 1, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop', price: '₹ 12.5 Cr', title: '4 BHK Luxury Apartment', location: 'Bandra West, Mumbai', beds: 4, baths: 4, sqft: 2500, type: 'Apartment', intent: 'buy', isFeatured: true },
   { id: 2, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 8.5 Cr', title: '3 BHK Premium Residence', location: 'BKC, Mumbai', beds: 3, baths: 3, sqft: 1800, type: 'Apartment', intent: 'buy', isFeatured: true },
   { id: 3, image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop', price: '₹ 35.0 Cr', title: '5 BHK Sea-Facing Penthouse', location: 'Worli, Mumbai', beds: 5, baths: 6, sqft: 4500, type: 'Penthouse', intent: 'buy', isFeatured: true },
@@ -20,6 +21,80 @@ const allProperties = [
   { id: 103, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop', price: '₹ 4.9 Cr', title: 'Luxury 3BHK Penthouse', location: 'BKC, Mumbai', beds: 3, baths: 4, sqft: 2100, type: 'Penthouse', intent: 'buy', isFeatured: true },
   { id: 104, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', price: '₹ 15.5 Cr', title: 'Premium Office Space', location: 'BKC, Mumbai', beds: 0, baths: 2, sqft: 3500, type: 'Commercial', intent: 'commercial' },
 ];
+
+const defaultImages = [
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+];
+
+const generateProperties = () => {
+  let generated: any[] = [...baseProperties];
+  let idCounter = 500;
+
+  westernLineMarketData.zones.forEach(zone => {
+    zone.stations.forEach(station => {
+      // Residential Buy
+      let bedsBuy = station.avgPricePerSqft > 40000 ? 4 : 2;
+      let sqftBuy = bedsBuy * 600 + 200;
+      let priceBuy = (station.avgPricePerSqft * sqftBuy / 10000000).toFixed(2);
+      generated.push({
+        id: idCounter++,
+        image: defaultImages[idCounter % defaultImages.length],
+        price: `₹ ${priceBuy} Cr`,
+        title: `${bedsBuy} BHK ${station.avgPricePerSqft > 45000 ? 'Luxury ' : ''}Apartment`,
+        location: `${station.name}, Mumbai`,
+        beds: bedsBuy,
+        baths: bedsBuy,
+        sqft: sqftBuy,
+        type: station.avgPricePerSqft > 50000 ? 'Penthouse' : 'Apartment',
+        intent: 'buy',
+        isFeatured: station.avgPricePerSqft > 55000
+      });
+
+      // Commercial or Rent
+      if (station.propertyTypes.some(t => t.toLowerCase().includes('commercial'))) {
+        let sqftComm = 2500;
+        let priceComm = (station.avgPricePerSqft * sqftComm / 10000000).toFixed(2);
+        generated.push({
+          id: idCounter++,
+          image: defaultImages[idCounter % defaultImages.length],
+          price: `₹ ${priceComm} Cr`,
+          title: `Premium Office Space (${station.name})`,
+          location: `${station.name}, Mumbai`,
+          beds: 0,
+          baths: 2,
+          sqft: sqftComm,
+          type: 'Commercial',
+          intent: 'commercial',
+          isFeatured: false
+        });
+      } else {
+        let rentBeds = 2;
+        let rentPriceLakhs = (station.avgPricePerSqft * 1000 * 0.03 / 12 / 100000).toFixed(1);
+        generated.push({
+          id: idCounter++,
+          image: defaultImages[idCounter % defaultImages.length],
+          price: `₹ ${rentPriceLakhs} L / mo`,
+          title: `${rentBeds} BHK Modern Flat`,
+          location: `${station.name}, Mumbai`,
+          beds: rentBeds,
+          baths: 2,
+          sqft: rentBeds * 500 + 100,
+          type: 'Apartment',
+          intent: 'rent',
+          isFeatured: false
+        });
+      }
+    });
+  });
+  return generated;
+};
+
+export const allProperties = generateProperties();
 
 const intentTabs = [
   { value: 'all', label: 'All' },
@@ -284,11 +359,15 @@ export default function Properties() {
               ].map(filter => (
                 <div key={filter.label}>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{filter.label}</label>
-                  <div className="relative">
-                    <select className="w-full px-4 py-3 rounded-xl border border-black/10 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-v-blue/20 text-sm font-bold text-v-black appearance-none cursor-pointer">
-                      {filter.options.map(o => <option key={o}>{o}</option>)}
-                    </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                  <div className="flex flex-wrap gap-2">
+                    {filter.options.map((o, i) => (
+                      <button
+                        key={o}
+                        className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${i === 0 ? 'bg-v-blue text-white border-transparent shadow-[0_2px_10px_rgba(37,99,235,0.2)]' : 'bg-white border-black/10 text-slate-600 hover:bg-slate-50 hover:border-black/20'}`}
+                      >
+                        {o}
+                      </button>
+                    ))}
                   </div>
                 </div>
               ))}

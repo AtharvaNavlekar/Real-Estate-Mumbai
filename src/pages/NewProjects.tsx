@@ -6,84 +6,51 @@ import {
     ChevronDown, Sparkles, Building2, Calendar
 } from 'lucide-react';
 import PropertyCard from '../components/PropertyCard';
+import westernLineMarketData from '../data/westernLineMarketData.json';
 
 export default function NewProjects() {
     const [activeTab, setActiveTab] = useState('All');
+    const [activeDeveloper, setActiveDeveloper] = useState('All Developers');
 
-    const projects = [
-        {
-            id: 1,
-            name: "Lodha World Towers",
-            developer: "Lodha Group",
-            status: "Under Construction",
-            possession: "Dec 2026",
-            location: "Lower Parel",
-            price: "₹ 8.5 Cr Onwards",
-            rera: "P51900008345",
-            image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-            tags: ["High-rise", "Luxury", "Pre-Launch"]
-        },
-        {
-            id: 2,
-            name: "Oberoi Three Sixty West",
-            developer: "Oberoi Realty",
-            status: "Ready to Move",
-            possession: "Immediate",
-            location: "Worli",
-            price: "₹ 45.0 Cr Onwards",
-            rera: "P51900002444",
-            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
-            tags: ["Ultra-Luxury", "Sea-Facing", "Ritz-Carlton"]
-        },
-        {
-            id: 3,
-            name: "Piramal Aranya",
-            developer: "Piramal Realty",
-            status: "Under Construction",
-            possession: "Mar 2025",
-            location: "Byculla",
-            price: "₹ 12.0 Cr Onwards",
-            rera: "P51900003144",
-            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
-            tags: ["Botanical Gardens", "Harbour View"]
-        },
-        {
-            id: 4,
-            name: "Rustomjee Seasons",
-            developer: "Rustomjee",
-            status: "Nearing Completion",
-            possession: "Sep 2025",
-            location: "BKC Annexe",
-            price: "₹ 6.5 Cr Onwards",
-            rera: "P51800001433",
-            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
-            tags: ["Gated Community", "Corporate Hub"]
-        },
-        {
-            id: 5,
-            name: "Godrej The Trees",
-            developer: "Godrej Properties",
-            status: "Ready to Move",
-            possession: "Immediate",
-            location: "Vikhroli",
-            price: "₹ 3.8 Cr Onwards",
-            rera: "P51800000165",
-            image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
-            tags: ["Township", "Mixed-Use", "Green Building"]
-        },
-        {
-            id: 6,
-            name: "Prestige Ocean Towers",
-            developer: "Prestige Group",
-            status: "Pre-Launch",
-            possession: "Jan 2028",
-            location: "Marine Lines",
-            price: "₹ 18.5 Cr Onwards",
-            rera: "P51900044555",
-            image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
-            tags: ["Exclusive", "Pre-Launch Offers"]
-        }
+    const defaultImages = [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop"
     ];
+
+    const generateProjects = () => {
+        let allProjects: any[] = [];
+        let idCounter = 1;
+
+        westernLineMarketData.zones.forEach(zone => {
+            zone.stations.forEach(station => {
+                if (station.upcomingProjects && station.upcomingProjects.length > 0) {
+                    station.upcomingProjects.forEach(proj => {
+                        allProjects.push({
+                            id: idCounter,
+                            name: proj.name,
+                            developer: proj.developer,
+                            status: proj.rera === 'Ready to Move' ? 'Ready to Move' : proj.rera === 'Pre-Launch' ? 'Pre-Launch' : 'Under Construction',
+                            possession: proj.possession,
+                            location: station.name,
+                            price: `₹ ${(station.avgPricePerSqft * 1200 / 10000000).toFixed(1)} Cr Onwards`,
+                            rera: proj.rera,
+                            image: defaultImages[idCounter % defaultImages.length],
+                            tags: [proj.type]
+                        });
+                        idCounter++;
+                    });
+                }
+            });
+        });
+        return allProjects;
+    };
+
+    const projects = generateProjects();
+    const activeDevelopersList = ["All Developers", ...Array.from(new Set(projects.map(p => p.developer)))];
 
     const filterOptions = ["All", "Pre-Launch", "Under Construction", "Ready to Move"];
 
@@ -120,11 +87,12 @@ export default function NewProjects() {
                         </div>
                         <div className="w-full sm:w-auto flex gap-3">
                             <div className="relative flex-1 sm:w-48">
-                                <select className="appearance-none w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-v-blue text-sm font-bold text-slate-700 cursor-pointer">
-                                    <option>All Developers</option>
-                                    <option>Lodha Group</option>
-                                    <option>Oberoi Realty</option>
-                                    <option>Godrej Properties</option>
+                                <select
+                                    className="appearance-none w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-v-blue text-sm font-bold text-slate-700 cursor-pointer"
+                                    value={activeDeveloper}
+                                    onChange={(e) => setActiveDeveloper(e.target.value)}
+                                >
+                                    {activeDevelopersList.map(dev => <option key={dev}>{dev}</option>)}
                                 </select>
                                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                             </div>
@@ -146,7 +114,7 @@ export default function NewProjects() {
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.filter(p => activeTab === 'All' || p.status === activeTab).map((project, idx) => (
+                    {projects.filter(p => (activeTab === 'All' || p.status === activeTab) && (activeDeveloper === 'All Developers' || p.developer === activeDeveloper)).map((project, idx) => (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -156,6 +124,7 @@ export default function NewProjects() {
                         >
                             <Link to={`/new-projects/${project.id}`} className="block">
                                 <PropertyCard
+                                    id={project.id}
                                     title={project.name}
                                     location={project.location}
                                     image={project.image}

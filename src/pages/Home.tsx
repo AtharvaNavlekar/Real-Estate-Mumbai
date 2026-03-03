@@ -5,88 +5,53 @@ import AISearchBar from '../components/AISearchBar';
 import PropertyCard from '../components/PropertyCard';
 import NeighborhoodCard from '../components/NeighborhoodCard';
 import { ArrowRight, ShieldCheck, TrendingUp, Users, BadgeCheck, Star, Quote } from 'lucide-react';
+import westernLineMarketData from '../data/westernLineMarketData.json';
 
 export default function Home() {
-  const featuredProperties = [
-    {
-      id: 1,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-      price: '₹ 12.5 Cr',
-      title: '4 BHK Luxury Apartment',
-      location: 'Bandra West, Mumbai',
-      beds: 4,
-      baths: 4,
-      sqft: 2500,
-      type: 'Apartment',
-      isFeatured: true
-    },
-    {
-      id: 2,
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
-      price: '₹ 8.5 Cr',
-      title: '3 BHK Premium Residence',
-      location: 'BKC, Mumbai',
-      beds: 3,
-      baths: 3,
-      sqft: 1800,
-      type: 'Apartment',
-      isFeatured: true
-    },
-    {
-      id: 3,
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
-      price: '₹ 35.0 Cr',
-      title: '5 BHK Sea-Facing Penthouse',
-      location: 'Worli, Mumbai',
-      beds: 5,
-      baths: 6,
-      sqft: 4500,
-      type: 'Penthouse',
-      isFeatured: true
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
-      price: '₹ 2.8 Cr',
-      title: '2 BHK Modern Flat',
-      location: 'Powai, Mumbai',
-      beds: 2,
-      baths: 2,
-      sqft: 1100,
-      type: 'Apartment'
-    }
+  const defaultImages = [
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
   ];
 
-  const neighborhoods = [
-    {
-      id: 1,
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
-      name: 'Bandra West',
-      propertyCount: 450,
-      description: 'The Queen of Suburbs, known for its vibrant culture and premium sea-facing apartments.'
-    },
-    {
-      id: 2,
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
-      name: 'BKC',
-      propertyCount: 320,
-      description: 'Mumbai\'s premier business district, offering ultra-luxury residences and commercial spaces.'
-    },
-    {
-      id: 3,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-      name: 'Worli',
-      propertyCount: 280,
-      description: 'Iconic skyline views and high-end developments define this prestigious South Mumbai locality.'
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
-      name: 'Powai',
-      propertyCount: 510,
-      description: 'A perfect blend of nature and modern infrastructure, popular among tech professionals.'
-    }
+  const featuredProperties = westernLineMarketData.zones[0].stations.slice(0, 4).map((station, i) => {
+    let beds = 4;
+    let sqft = 2500;
+    let price = (station.avgPricePerSqft * sqft / 10000000).toFixed(2);
+    return {
+      id: 1000 + i,
+      image: defaultImages[i % defaultImages.length],
+      price: `₹ ${price} Cr`,
+      title: `${beds} BHK Luxury ${station.avgPricePerSqft > 50000 ? 'Penthouse' : 'Apartment'}`,
+      location: `${station.name}, Mumbai`,
+      beds: beds,
+      baths: beds,
+      sqft: sqft,
+      type: station.avgPricePerSqft > 50000 ? 'Penthouse' : 'Apartment',
+      isFeatured: true
+    };
+  });
+
+  const defaultNeighborhoodImages = [
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'
   ];
+
+  const neighborhoods = westernLineMarketData.zones.slice(0, 4).map((zone, i) => {
+    // Create a nice slug for the link
+    let slugName = zone.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return {
+      id: 2000 + i,
+      image: defaultNeighborhoodImages[i % defaultNeighborhoodImages.length],
+      name: zone.name,
+      slugName: slugName,
+      propertyCount: zone.stations.reduce((acc, st) => acc + (st.upcomingProjects ? st.upcomingProjects.length + 5 : 5), 0) * 10,
+      description: `Premium real estate in ${zone.name}, featuring ${zone.stations.length} major stations including ${zone.stations[0].name} and ${zone.stations[zone.stations.length - 1].name}.`
+    }
+  });
 
   return (
     <main className="flex-1 flex flex-col">
@@ -158,6 +123,7 @@ export default function Home() {
           {featuredProperties.map((property) => (
             <Link to={`/property/${property.id}`} key={property.id}>
               <PropertyCard
+                id={property.id}
                 image={property.image}
                 price={property.price}
                 title={property.title}
@@ -205,7 +171,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <Link to={`/search?location=${neighborhood.name}`} className="relative group rounded-3xl overflow-hidden h-96 cursor-pointer border border-white/10 block">
+                <Link to={`/neighborhoods/${neighborhood.slugName}`} className="relative group rounded-3xl overflow-hidden h-96 cursor-pointer border border-white/10 block">
                   <img
                     src={neighborhood.image}
                     alt={neighborhood.name}

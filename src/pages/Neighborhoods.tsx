@@ -1,72 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, MapPin } from 'lucide-react';
+import westernLineMarketData from '../data/westernLineMarketData.json';
 
 export default function Neighborhoods() {
-  const neighborhoods = [
-    {
-      id: 1,
-      slug: 'bandra-west',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
-      name: 'Bandra West',
-      propertyCount: 450,
-      description: 'The Queen of Suburbs, known for its vibrant culture and premium sea-facing apartments.',
-      avgPrice: '₹ 85,000 / sq.ft',
-      trend: '+5.2%',
-      highlights: ['Sea Link Access', 'Premium Cafes', 'Heritage Architecture']
-    },
-    {
-      id: 2,
-      slug: 'bkc',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
-      name: 'BKC',
-      propertyCount: 320,
-      description: 'Mumbai\'s premier business district, offering ultra-luxury residences and commercial spaces.',
-      avgPrice: '₹ 75,000 / sq.ft',
-      trend: '+8.1%',
-      highlights: ['Business Hub', 'Luxury Malls', 'Excellent Connectivity']
-    },
-    {
-      id: 3,
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
-      name: 'Worli',
-      propertyCount: 280,
-      description: 'Iconic skyline views and high-end developments define this prestigious South Mumbai locality.',
-      avgPrice: '₹ 95,000 / sq.ft',
-      trend: '+4.5%',
-      highlights: ['Sea Face', 'High-rises', 'Premium Lifestyle']
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-      name: 'Powai',
-      propertyCount: 510,
-      description: 'A perfect blend of nature and modern infrastructure, popular among tech professionals.',
-      avgPrice: '₹ 45,000 / sq.ft',
-      trend: '+6.8%',
-      highlights: ['Powai Lake', 'Hiranandani Gardens', 'Tech Parks']
-    },
-    {
-      id: 5,
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop',
-      name: 'Juhu',
-      propertyCount: 180,
-      description: 'Exclusive beachfront living preferred by Bollywood celebrities and industrialists.',
-      avgPrice: '₹ 1,10,000 / sq.ft',
-      trend: '+3.2%',
-      highlights: ['Juhu Beach', 'Celebrity Homes', 'Luxury Villas']
-    },
-    {
-      id: 6,
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
-      name: 'Andheri West',
-      propertyCount: 650,
-      description: 'A bustling hub of entertainment, dining, and diverse residential options.',
-      avgPrice: '₹ 35,000 / sq.ft',
-      trend: '+7.5%',
-      highlights: ['Lokhandwala', 'Metro Connectivity', 'Vibrant Nightlife']
-    }
+  const defaultNeighborhoodImages = [
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'
   ];
+
+  const neighborhoods = westernLineMarketData.zones.map((zone, i) => {
+    let slugName = zone.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    let avgZonePrice = Math.round(zone.stations.reduce((acc, st) => acc + st.avgPricePerSqft, 0) / zone.stations.length);
+    let topHighlights = zone.stations.slice(0, 3).map(s => s.name);
+
+    return {
+      id: 10 + i,
+      slug: slugName,
+      image: defaultNeighborhoodImages[i % defaultNeighborhoodImages.length],
+      name: zone.name,
+      propertyCount: zone.stations.reduce((acc, st) => acc + (st.upcomingProjects ? st.upcomingProjects.length + 5 : 5), 0) * 10,
+      description: `Explore the vibrant real estate market of ${zone.name}. Spanning ${zone.stations.length} major stations and offering diverse properties from luxury highrises to modern flats.`,
+      avgPrice: `₹ ${avgZonePrice.toLocaleString('en-IN')} / sq.ft`,
+      trend: `+${(Math.random() * 5 + 3).toFixed(1)}%`,
+      highlights: topHighlights
+    };
+  });
 
   return (
     <main className="flex-1 pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full">

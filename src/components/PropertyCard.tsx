@@ -2,6 +2,9 @@ import React from 'react';
 import { MapPin, Bed, Bath, Square, Heart, BadgeCheck, LucideIcon, ArrowLeftRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useCompare } from '../context/CompareContext';
+import { useFavorites } from '../context/FavoritesContext';
+import { IconButton } from './ui/IconButton';
+import { useNavigate } from 'react-router-dom';
 
 export interface PropertyMetric {
   icon: LucideIcon;
@@ -28,6 +31,8 @@ interface PropertyCardProps {
 
 export default function PropertyCard({ image, price, title, location, beds, baths, sqft, type, isFeatured, metrics, actionOverlay, id }: PropertyCardProps & { id?: number }) {
   const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
+  const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
+  const navigate = useNavigate();
   // Try to split price beautifully if it contains " / ", " onwards", etc.
   const formatPrice = (priceStr: string) => {
     if (priceStr.includes(' / ')) {
@@ -54,6 +59,15 @@ export default function PropertyCard({ image, price, title, location, beds, bath
     <motion.div
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
+      onClick={() => {
+        if (id !== undefined) {
+          if (type && type.toLowerCase().includes('project')) {
+            navigate(`/new-projects/${id}`);
+          } else {
+            navigate(`/property/${id}`);
+          }
+        }
+      }}
       className="group bg-white rounded-[2rem] overflow-hidden border border-black/5 hover:border-black/20 hover:shadow-2xl transition-all duration-500 flex flex-col cursor-pointer p-2 h-full"
     >
       {/* Image Container */}
@@ -75,13 +89,27 @@ export default function PropertyCard({ image, price, title, location, beds, bath
             {type}
           </span>
         </div>
-        <button
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-          className="absolute top-4 right-4 w-11 h-11 bg-white flex items-center justify-center rounded-full text-slate-400 hover:text-red-500 hover:scale-110 active:scale-95 transition-all shadow-sm"
-          aria-label={`Save ${title}`}
-        >
-          <Heart className="w-5 h-5" />
-        </button>
+        <div className="absolute top-4 right-4 z-20">
+          <IconButton
+            variant="default"
+            size="md"
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (id !== undefined) {
+                if (isFavorite(id)) {
+                  removeFromFavorites(id);
+                } else {
+                  addToFavorites({ id, image, price, title, location, type, beds, baths, sqft, isFeatured });
+                }
+              }
+            }}
+            aria-label={`Save ${title}`}
+            className={id !== undefined && isFavorite(id) ? "text-red-500 border-red-200" : "text-slate-400 hover:text-red-500"}
+          >
+            <Heart className="transition-all w-5 h-5" fill={id !== undefined && isFavorite(id) ? "currentColor" : "none"} />
+          </IconButton>
+        </div>
         {id !== undefined && (
           <button
             onClick={(e) => {

@@ -1,0 +1,807 @@
+{
+    "metadata": {
+        "title": "Mumbai Western Line Real Estate Market Data",
+        "corridor": "Churchgate to Dahisar",
+        "totalStations": 22,
+        "dataPeriod": "Q4 2025 – Q1 2026",
+        "lastUpdated": "2026-03-03",
+        "sources": [
+            "99acres",
+            "Housing.com",
+            "MagicBricks",
+            "MahaRERA",
+            "MCGM",
+            "Census India"
+        ]
+    },
+    "zones": [
+        {
+            "id": "south-mumbai-core",
+            "name": "South Mumbai Core",
+            "range": "Churchgate → Mumbai Central",
+            "stations": [
+                {
+                    "id": "churchgate",
+                    "name": "Churchgate",
+                    "zone": "south-mumbai-core",
+                    "avgPricePerSqft": 65000,
+                    "priceRange": {
+                        "min": 45000,
+                        "max": 125000
+                    },
+                    "yoyChange": 6.2,
+                    "propertyTypes": [
+                        "Residential (HNI)",
+                        "Commercial (Grade A)"
+                    ],
+                    "demographics": {
+                        "ward": "A",
+                        "estPopulation": 100000,
+                        "popDensity": 55000,
+                        "medianIncome": "₹20–30 lakh/year",
+                        "literacy": 90
+                    },
+                    "transport": {
+                        "railway": "Churchgate Terminus — Western Line origin",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Coastal Road Phase 1 operational",
+                        "airport": "25 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Sobha Sea Haven",
+                            "developer": "Sobha Ltd",
+                            "type": "Luxury Residential",
+                            "possession": "Dec 2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "marine-lines",
+                    "name": "Marine Lines",
+                    "zone": "south-mumbai-core",
+                    "avgPricePerSqft": 60000,
+                    "priceRange": {
+                        "min": 55000,
+                        "max": 95000
+                    },
+                    "yoyChange": 5.8,
+                    "propertyTypes": [
+                        "Luxury Residential (Sea-facing)",
+                        "Commercial"
+                    ],
+                    "demographics": {
+                        "ward": "A",
+                        "estPopulation": 85000,
+                        "popDensity": 50000,
+                        "medianIncome": "₹18–30 lakh/year",
+                        "literacy": 89
+                    },
+                    "transport": {
+                        "railway": "Marine Lines station — Western Line",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Marine Drive; Coastal Road access",
+                        "airport": "23 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Prestige Ocean Towers",
+                            "developer": "Prestige Group",
+                            "type": "Ultra-Luxury 3–5 BHK",
+                            "possession": "Jan 2028",
+                            "rera": "Pre-Launch"
+                        }
+                    ]
+                },
+                {
+                    "id": "charni-road",
+                    "name": "Charni Road",
+                    "zone": "south-mumbai-core",
+                    "avgPricePerSqft": 55000,
+                    "priceRange": {
+                        "min": 40000,
+                        "max": 78000
+                    },
+                    "yoyChange": 7.1,
+                    "propertyTypes": [
+                        "Residential (Redevelopment)",
+                        "Mixed-use"
+                    ],
+                    "demographics": {
+                        "ward": "B",
+                        "estPopulation": 95000,
+                        "popDensity": 48000,
+                        "medianIncome": "₹15–25 lakh/year",
+                        "literacy": 88
+                    },
+                    "transport": {
+                        "railway": "Charni Road station — Western Line",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Girgaon Chowpatty; Marine Drive",
+                        "airport": "22 km"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "grant-road",
+                    "name": "Grant Road",
+                    "zone": "south-mumbai-core",
+                    "avgPricePerSqft": 45000,
+                    "priceRange": {
+                        "min": 35000,
+                        "max": 65000
+                    },
+                    "yoyChange": 5.5,
+                    "propertyTypes": [
+                        "Residential (Mid-premium)",
+                        "Retail"
+                    ],
+                    "demographics": {
+                        "ward": "C",
+                        "estPopulation": 110000,
+                        "popDensity": 45000,
+                        "medianIncome": "₹12–20 lakh/year",
+                        "literacy": 86
+                    },
+                    "transport": {
+                        "railway": "Grant Road station — Western Line",
+                        "road": "Lamington Road; S.V. Road",
+                        "airport": "20 km"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "mumbai-central",
+                    "name": "Mumbai Central",
+                    "zone": "south-mumbai-core",
+                    "avgPricePerSqft": 42000,
+                    "priceRange": {
+                        "min": 32000,
+                        "max": 60000
+                    },
+                    "yoyChange": 4.8,
+                    "propertyTypes": [
+                        "Residential",
+                        "Commercial",
+                        "Transit-oriented"
+                    ],
+                    "demographics": {
+                        "ward": "D",
+                        "estPopulation": 120000,
+                        "popDensity": 42000,
+                        "medianIncome": "₹10–18 lakh/year",
+                        "literacy": 85
+                    },
+                    "transport": {
+                        "railway": "Mumbai Central Terminus — Western Line; Rajdhani/Shatabdi halt",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Bellasis Road; Dr. A.B. Road",
+                        "airport": "18 km"
+                    },
+                    "upcomingProjects": []
+                }
+            ]
+        },
+        {
+            "id": "mid-south-premium",
+            "name": "Mid-South Premium",
+            "range": "Mahalaxmi → Dadar",
+            "stations": [
+                {
+                    "id": "mahalaxmi",
+                    "name": "Mahalaxmi",
+                    "zone": "mid-south-premium",
+                    "avgPricePerSqft": 60000,
+                    "priceRange": {
+                        "min": 50000,
+                        "max": 80000
+                    },
+                    "yoyChange": 16.0,
+                    "propertyTypes": [
+                        "Luxury Residential",
+                        "Racecourse-view"
+                    ],
+                    "demographics": {
+                        "ward": "E",
+                        "estPopulation": 130000,
+                        "popDensity": 40000,
+                        "medianIncome": "₹15–28 lakh/year",
+                        "literacy": 87
+                    },
+                    "transport": {
+                        "railway": "Mahalaxmi station — Western Line",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Coastal Road interchange (under construction)",
+                        "airport": "16 km"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "lower-parel",
+                    "name": "Lower Parel",
+                    "zone": "mid-south-premium",
+                    "avgPricePerSqft": 52000,
+                    "priceRange": {
+                        "min": 42000,
+                        "max": 70000
+                    },
+                    "yoyChange": 8.5,
+                    "propertyTypes": [
+                        "Premium Residential",
+                        "Grade A Commercial"
+                    ],
+                    "demographics": {
+                        "ward": "F/S",
+                        "estPopulation": 180000,
+                        "popDensity": 38000,
+                        "medianIncome": "₹14–25 lakh/year",
+                        "literacy": 88
+                    },
+                    "transport": {
+                        "railway": "Lower Parel station — Western Line",
+                        "monorail": "Lower Parel—Chembur Monorail operational",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Senapati Bapat Marg; NM Joshi Marg",
+                        "airport": "14 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Lodha World Towers",
+                            "developer": "Lodha Group",
+                            "type": "High-rise Luxury",
+                            "possession": "Dec 2026",
+                            "rera": "Approved"
+                        },
+                        {
+                            "name": "Indiabulls Sky Forest",
+                            "developer": "Indiabulls",
+                            "type": "Luxury 3–5 BHK",
+                            "possession": "Mar 2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "prabhadevi",
+                    "name": "Elphinstone / Prabhadevi",
+                    "zone": "mid-south-premium",
+                    "avgPricePerSqft": 48000,
+                    "priceRange": {
+                        "min": 38000,
+                        "max": 65000
+                    },
+                    "yoyChange": 6.8,
+                    "propertyTypes": [
+                        "Residential (Redevelopment)",
+                        "Retail"
+                    ],
+                    "demographics": {
+                        "ward": "F/N",
+                        "estPopulation": 160000,
+                        "popDensity": 36000,
+                        "medianIncome": "₹12–22 lakh/year",
+                        "literacy": 87
+                    },
+                    "transport": {
+                        "railway": "Elphinstone Road station — Western Line",
+                        "road": "Bandra-Worli Sea Link access",
+                        "airport": "13 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Rustomjee Crown",
+                            "developer": "Rustomjee",
+                            "type": "Premium 3–4 BHK",
+                            "possession": "Jun 2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "dadar",
+                    "name": "Dadar",
+                    "zone": "mid-south-premium",
+                    "avgPricePerSqft": 42000,
+                    "priceRange": {
+                        "min": 30000,
+                        "max": 58000
+                    },
+                    "yoyChange": 5.2,
+                    "propertyTypes": [
+                        "Residential",
+                        "Commercial Hub",
+                        "Retail"
+                    ],
+                    "demographics": {
+                        "ward": "G/N",
+                        "estPopulation": 250000,
+                        "popDensity": 42000,
+                        "medianIncome": "₹10–20 lakh/year",
+                        "literacy": 86
+                    },
+                    "transport": {
+                        "railway": "Dadar — Interchange: Western + Central Line",
+                        "road": "Tilak Bridge; LBS Marg; SV Road",
+                        "airport": "12 km"
+                    },
+                    "upcomingProjects": []
+                }
+            ]
+        },
+        {
+            "id": "western-suburbs-1",
+            "name": "Western Suburbs I",
+            "range": "Mahim → Santacruz",
+            "stations": [
+                {
+                    "id": "mahim",
+                    "name": "Mahim",
+                    "zone": "western-suburbs-1",
+                    "avgPricePerSqft": 38000,
+                    "priceRange": {
+                        "min": 28000,
+                        "max": 52000
+                    },
+                    "yoyChange": 5.8,
+                    "propertyTypes": [
+                        "Residential (Redevelopment)",
+                        "Mixed-use"
+                    ],
+                    "demographics": {
+                        "ward": "G/N",
+                        "estPopulation": 180000,
+                        "popDensity": 38000,
+                        "medianIncome": "₹8–16 lakh/year",
+                        "literacy": 84
+                    },
+                    "transport": {
+                        "railway": "Mahim Junction — Western Line",
+                        "road": "Mahim Causeway; SV Road",
+                        "airport": "10 km"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "bandra",
+                    "name": "Bandra",
+                    "zone": "western-suburbs-1",
+                    "avgPricePerSqft": 48000,
+                    "priceRange": {
+                        "min": 33000,
+                        "max": 65000
+                    },
+                    "yoyChange": 7.5,
+                    "propertyTypes": [
+                        "Luxury Residential",
+                        "Commercial (BKC)",
+                        "Retail",
+                        "Boutique"
+                    ],
+                    "demographics": {
+                        "ward": "H/W",
+                        "estPopulation": 322000,
+                        "popDensity": 29000,
+                        "medianIncome": "₹15–28 lakh/year",
+                        "literacy": 89
+                    },
+                    "transport": {
+                        "railway": "Bandra Terminus — Western Line; Rajdhani halt",
+                        "metro": "Metro Line 3 (under construction)",
+                        "road": "Bandra-Worli Sea Link; Western Express Highway; SV Road; Carter Road",
+                        "airport": "6 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "DLH Signature",
+                            "developer": "DLH",
+                            "type": "Luxury 2–4 BHK",
+                            "possession": "Dec 2026",
+                            "rera": "Approved"
+                        },
+                        {
+                            "name": "Kalpataru Magnus",
+                            "developer": "Kalpataru",
+                            "type": "Premium 3–5 BHK",
+                            "possession": "Mar 2026",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "khar-road",
+                    "name": "Khar Road",
+                    "zone": "western-suburbs-1",
+                    "avgPricePerSqft": 45000,
+                    "priceRange": {
+                        "min": 35000,
+                        "max": 60000
+                    },
+                    "yoyChange": 6.2,
+                    "propertyTypes": [
+                        "Premium Residential",
+                        "Boutique Retail"
+                    ],
+                    "demographics": {
+                        "ward": "H/W",
+                        "estPopulation": 120000,
+                        "popDensity": 28000,
+                        "medianIncome": "₹14–26 lakh/year",
+                        "literacy": 89
+                    },
+                    "transport": {
+                        "railway": "Khar Road station — Western Line",
+                        "road": "Linking Road; SV Road; Khar Danda Road",
+                        "airport": "5 km"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "santacruz",
+                    "name": "Santacruz",
+                    "zone": "western-suburbs-1",
+                    "avgPricePerSqft": 38000,
+                    "priceRange": {
+                        "min": 28000,
+                        "max": 52000
+                    },
+                    "yoyChange": 5.5,
+                    "propertyTypes": [
+                        "Residential",
+                        "Airport-proximity Commercial"
+                    ],
+                    "demographics": {
+                        "ward": "H/E",
+                        "estPopulation": 200000,
+                        "popDensity": 30000,
+                        "medianIncome": "₹10–20 lakh/year",
+                        "literacy": 87
+                    },
+                    "transport": {
+                        "railway": "Santacruz station — Western Line",
+                        "road": "Western Express Highway; SV Road",
+                        "airport": "2 km to Domestic Terminal"
+                    },
+                    "upcomingProjects": []
+                }
+            ]
+        },
+        {
+            "id": "western-suburbs-2",
+            "name": "Western Suburbs II",
+            "range": "Vile Parle → Goregaon",
+            "stations": [
+                {
+                    "id": "vile-parle",
+                    "name": "Vile Parle",
+                    "zone": "western-suburbs-2",
+                    "avgPricePerSqft": 33500,
+                    "priceRange": {
+                        "min": 25000,
+                        "max": 48000
+                    },
+                    "yoyChange": 5.0,
+                    "propertyTypes": [
+                        "Residential (Education Hub)",
+                        "Retail"
+                    ],
+                    "demographics": {
+                        "ward": "K/W",
+                        "estPopulation": 220000,
+                        "popDensity": 30000,
+                        "medianIncome": "₹10–20 lakh/year",
+                        "literacy": 88
+                    },
+                    "transport": {
+                        "railway": "Vile Parle station — Western Line",
+                        "road": "SV Road; Linking Road; Western Express Highway",
+                        "airport": "Adjacent to International Airport"
+                    },
+                    "upcomingProjects": []
+                },
+                {
+                    "id": "andheri",
+                    "name": "Andheri",
+                    "zone": "western-suburbs-2",
+                    "avgPricePerSqft": 26000,
+                    "priceRange": {
+                        "min": 18500,
+                        "max": 38000
+                    },
+                    "yoyChange": 6.5,
+                    "propertyTypes": [
+                        "Residential",
+                        "IT/ITES",
+                        "Commercial",
+                        "Industrial (MIDC/SEEPZ)"
+                    ],
+                    "demographics": {
+                        "ward": "K/E + K/W",
+                        "estPopulation": 1645000,
+                        "popDensity": 32000,
+                        "medianIncome": "₹8–18 lakh/year",
+                        "literacy": 86
+                    },
+                    "transport": {
+                        "railway": "Andheri — Interchange: Western + Harbour Line",
+                        "metro": "Metro Line 1 (Versova–Ghatkopar) operational; Metro 2A, 7 access",
+                        "road": "Western Express Highway; Link Road; SV Road",
+                        "airport": "Adjacent to CSI Airport"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Kolte Patil Serenova",
+                            "developer": "Kolte-Patil",
+                            "type": "Premium 2–3 BHK",
+                            "possession": "2027",
+                            "rera": "Approved"
+                        },
+                        {
+                            "name": "Transcon Triumph Tower 4",
+                            "developer": "Transcon",
+                            "type": "2–3 BHK",
+                            "possession": "Mar 2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "jogeshwari",
+                    "name": "Jogeshwari",
+                    "zone": "western-suburbs-2",
+                    "avgPricePerSqft": 22500,
+                    "priceRange": {
+                        "min": 18000,
+                        "max": 30000
+                    },
+                    "yoyChange": 7.0,
+                    "propertyTypes": [
+                        "Residential (Affordable–Mid)",
+                        "Industrial"
+                    ],
+                    "demographics": {
+                        "ward": "P/S",
+                        "estPopulation": 350000,
+                        "popDensity": 25000,
+                        "medianIncome": "₹6–14 lakh/year",
+                        "literacy": 83
+                    },
+                    "transport": {
+                        "railway": "Jogeshwari station — Western Line",
+                        "metro": "Metro Line 2A, 7 access",
+                        "road": "SV Road; Western Express Highway; Caves Road",
+                        "airport": "8 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Avant Heritage IV",
+                            "developer": "Avant",
+                            "type": "1–3 BHK",
+                            "possession": "Dec 2028",
+                            "rera": "Approved"
+                        },
+                        {
+                            "name": "Avant Heritage V",
+                            "developer": "Avant",
+                            "type": "2–2.5 BHK",
+                            "possession": "Dec 2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "goregaon",
+                    "name": "Goregaon",
+                    "zone": "western-suburbs-2",
+                    "avgPricePerSqft": 23000,
+                    "priceRange": {
+                        "min": 18000,
+                        "max": 35000
+                    },
+                    "yoyChange": 8.2,
+                    "propertyTypes": [
+                        "Residential",
+                        "IT Parks (NESCO)",
+                        "Film City"
+                    ],
+                    "demographics": {
+                        "ward": "P/S",
+                        "estPopulation": 485000,
+                        "popDensity": 18000,
+                        "medianIncome": "₹8–16 lakh/year",
+                        "literacy": 85
+                    },
+                    "transport": {
+                        "railway": "Goregaon station — Western Line",
+                        "metro": "Metro Line 2A, 7 access",
+                        "road": "Western Express Highway; Link Road; SV Road",
+                        "airport": "10 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Sunteck City Avenue 4",
+                            "developer": "Sunteck",
+                            "type": "3 BHK (Ready)",
+                            "possession": "Jun 2025",
+                            "rera": "Ready to Move"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "extended-western",
+            "name": "Extended Western Suburbs",
+            "range": "Malad → Dahisar",
+            "stations": [
+                {
+                    "id": "malad",
+                    "name": "Malad",
+                    "zone": "extended-western",
+                    "avgPricePerSqft": 21500,
+                    "priceRange": {
+                        "min": 17000,
+                        "max": 28000
+                    },
+                    "yoyChange": 6.5,
+                    "propertyTypes": [
+                        "Residential (Mass–Mid)",
+                        "Commercial",
+                        "Industrial (MIDC)"
+                    ],
+                    "demographics": {
+                        "ward": "P/N",
+                        "estPopulation": 680000,
+                        "popDensity": 22000,
+                        "medianIncome": "₹6–14 lakh/year",
+                        "literacy": 84
+                    },
+                    "transport": {
+                        "railway": "Malad station — Western Line",
+                        "metro": "Metro Line 2A, 7 operational",
+                        "road": "Western Express Highway; Link Road; SV Road; Marve Road",
+                        "airport": "14 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Mahindra Marina 64",
+                            "developer": "Mahindra",
+                            "type": "Premium 2–4 BHK",
+                            "possession": "2028",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "kandivali",
+                    "name": "Kandivali",
+                    "zone": "extended-western",
+                    "avgPricePerSqft": 22300,
+                    "priceRange": {
+                        "min": 17500,
+                        "max": 29000
+                    },
+                    "yoyChange": 7.2,
+                    "propertyTypes": [
+                        "Residential (Families)",
+                        "Gated Communities"
+                    ],
+                    "demographics": {
+                        "ward": "R/S",
+                        "estPopulation": 720000,
+                        "popDensity": 20000,
+                        "medianIncome": "₹6–14 lakh/year",
+                        "literacy": 84
+                    },
+                    "transport": {
+                        "railway": "Kandivali station — Western Line",
+                        "metro": "Metro Line 2A, 7 operational",
+                        "road": "Western Express Highway; Link Road; SV Road",
+                        "airport": "16 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Godrej Reserve",
+                            "developer": "Godrej",
+                            "type": "Premium 2–4 BHK",
+                            "possession": "Jun 2030",
+                            "rera": "Approved"
+                        },
+                        {
+                            "name": "Mahindra Vista",
+                            "developer": "Mahindra",
+                            "type": "1–4 BHK Township",
+                            "possession": "Dec 2029",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "borivali",
+                    "name": "Borivali",
+                    "zone": "extended-western",
+                    "avgPricePerSqft": 23500,
+                    "priceRange": {
+                        "min": 18000,
+                        "max": 30000
+                    },
+                    "yoyChange": 6.0,
+                    "propertyTypes": [
+                        "Residential (Premium)",
+                        "SGNP proximity",
+                        "Commercial"
+                    ],
+                    "demographics": {
+                        "ward": "R/C",
+                        "estPopulation": 588000,
+                        "popDensity": 10000,
+                        "medianIncome": "₹8–16 lakh/year",
+                        "literacy": 86
+                    },
+                    "transport": {
+                        "railway": "Borivali — Terminus for some Western Line services",
+                        "metro": "Metro Line 2A, 7 operational",
+                        "road": "Western Express Highway; SV Road",
+                        "nationalHighway": "NH-48 access for Gujarat/Pune",
+                        "green": "Adjacent to Sanjay Gandhi National Park"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Paradigm Anantaara",
+                            "developer": "Paradigm",
+                            "type": "Ultra-Luxury 3–6 BHK",
+                            "possession": "Dec 2030",
+                            "rera": "Approved"
+                        }
+                    ]
+                },
+                {
+                    "id": "dahisar",
+                    "name": "Dahisar",
+                    "zone": "extended-western",
+                    "avgPricePerSqft": 18000,
+                    "priceRange": {
+                        "min": 13000,
+                        "max": 24000
+                    },
+                    "yoyChange": 18.0,
+                    "propertyTypes": [
+                        "Residential (Affordable–Mid)",
+                        "Emerging Commercial"
+                    ],
+                    "demographics": {
+                        "ward": "R/N",
+                        "estPopulation": 450000,
+                        "popDensity": 15000,
+                        "medianIncome": "₹5–12 lakh/year",
+                        "literacy": 83
+                    },
+                    "transport": {
+                        "railway": "Dahisar station — Western Line",
+                        "metro": "Metro Line 2A terminus (operational); Metro Line 9 (Dahisar–Mira Bhayandar, planned)",
+                        "road": "Western Express Highway; NH-48 access",
+                        "airport": "22 km"
+                    },
+                    "upcomingProjects": [
+                        {
+                            "name": "Vaayu",
+                            "developer": "Kolte-Patil",
+                            "type": "Affordable 1–2 BHK",
+                            "possession": "2027",
+                            "rera": "Approved"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "marketSummary": {
+        "westernSuburbsMarketShare": "57% of total Mumbai registrations (Feb 2026)",
+        "luxurySegment": "₹5Cr+ homes = 8% of all registrations",
+        "midPremiumGrowth": "₹2–5 Cr segment = 20% share",
+        "affordableDecline": "Sub-₹1 Cr share dropped from 46% → 40%",
+        "metroImpact": "Properties within 500m of Metro see 15–25% premium",
+        "highestGrowth": "Dahisar (+15–22% YoY)",
+        "mostStable": "Churchgate/Marine Lines (4–6% YoY)"
+    }
+}

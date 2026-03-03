@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Bed, Bath, Square, Heart, Share2, BadgeCheck, Phone, MessageCircle, TrendingUp, ShieldCheck, X } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { allProperties } from './Properties';
 
 const priceHistoryData = [
   { year: '2020', price: 10.5 },
@@ -46,24 +47,30 @@ export default function PropertyDetails() {
 
   const emiData = getEmiBreakdown();
 
-  // Mock property data
+  const propertyData = allProperties.find(p => p.id === (id ? parseInt(id) : 0));
+
+  // Dynamic property data based on route param ID
   const property = {
     id: id,
-    images: [
+    images: propertyData ? [
+      propertyData.image,
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+    ] : [
       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
     ],
-    price: '₹ 12.5 Cr',
-    title: '4 BHK Luxury Apartment',
-    location: 'Bandra West, Mumbai',
-    beds: 4,
-    baths: 4,
-    sqft: 2500,
-    type: 'Apartment',
+    price: propertyData?.price || '₹ 12.5 Cr',
+    title: propertyData?.title || 'Property Not Found',
+    location: propertyData?.location || 'Unknown Location',
+    beds: propertyData?.beds || 0,
+    baths: propertyData?.baths || 0,
+    sqft: propertyData?.sqft || 0,
+    type: propertyData?.type || 'Unknown Type',
     status: 'Ready to Move',
-    rera: 'P51800001234',
-    description: 'Experience unparalleled luxury in this exquisite 4 BHK apartment located in the heart of Bandra West. Boasting panoramic sea views, state-of-the-art amenities, and a meticulously designed interior, this residence offers a lifestyle of absolute comfort and elegance. The property features a spacious living area, a modern modular kitchen, and four well-appointed bedrooms with en-suite bathrooms. Residents can enjoy exclusive access to a rooftop infinity pool, a fully equipped gymnasium, and a private clubhouse.',
+    rera: `P5180000${propertyData?.id || '1234'}`,
+    description: `Experience unparalleled luxury in this exquisite ${propertyData?.type || 'property'} located in the heart of ${propertyData?.location || 'Mumbai'}. Boasting state-of-the-art amenities and a meticulously designed interior, this residence offers a lifestyle of absolute comfort and elegance.`,
     amenities: ['Sea View', 'Infinity Pool', 'Gymnasium', 'Clubhouse', '24/7 Security', 'Power Backup', 'Smart Home Automation', 'Reserved Parking'],
     agent: {
       name: 'Rohan Sharma',
