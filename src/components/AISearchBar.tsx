@@ -55,20 +55,13 @@ export default function AISearchBar() {
   return (
     <div className="w-full max-w-4xl mx-auto md:px-4">
       <form onSubmit={handleSearch} className="relative group w-full">
-        {/* Animated gradient border on hover/focus */}
-        <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 -z-10 blur-[1px]"></div>
-        {/* Soft glow behind */}
-        <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/20 via-violet-400/10 to-blue-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-60 group-focus-within:opacity-80 transition-opacity duration-700 -z-20"></div>
-
-        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white backdrop-blur-xl md:rounded-full rounded-[2rem] shadow-xl shadow-black/5 border border-black/[0.04] overflow-hidden p-2 gap-2">
-          {/* Sparkle Icon — pulses on hover */}
-          <div className="hidden md:flex pl-6 pr-2 items-center">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            >
-              <Sparkles className="w-5 h-5 text-violet-500" />
-            </motion.div>
+        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white md:rounded-full rounded-[2rem] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-200/60 overflow-hidden p-2 gap-2 hover:shadow-[0_16px_50px_-10px_rgba(0,0,0,0.12)] hover:border-slate-300 transition-all duration-300">
+          {/* Sparkle Icon */}
+          <div className="hidden md:flex pl-6 pr-2 items-center text-v-blue">
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-100 rounded-full blur-md animate-pulse"></div>
+              <Sparkles className="w-6 h-6 relative z-10" />
+            </div>
           </div>
 
           {/* Input field */}
@@ -78,17 +71,20 @@ export default function AISearchBar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Ask AI: Find a verified 3BHK in BKC under 5 Cr..."
-              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-v-black bg-transparent border-none focus:outline-none focus:ring-0 placeholder-slate-400 font-medium"
+              className="w-full py-4 px-6 md:px-2 md:py-5 text-lg md:text-xl text-slate-800 bg-transparent border-none focus:outline-none focus:ring-0 placeholder-slate-400 font-medium"
             />
           </div>
 
-          {/* Search Button — gradient with scale micro-interaction */}
+          {/* Divider */}
+          <div className="hidden md:block w-px h-10 bg-slate-200 mx-1"></div>
+
+          {/* Search Button */}
           <motion.button
             type="submit"
             disabled={isSearching}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white px-10 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-colors flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-blue-600/25"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full md:w-auto bg-v-black hover:bg-slate-800 text-white px-10 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-colors flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-black/10"
           >
             {isSearching ? (
               <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
@@ -103,13 +99,14 @@ export default function AISearchBar() {
       </form>
 
       {/* Quick filter pills */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
+      <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+        <span className="hidden sm:inline-block text-xs font-bold text-slate-400 uppercase tracking-widest mr-2">Trending:</span>
         {['3 BHK in Bandra', 'Sea-facing Worli', 'Under ₹2 Cr Powai', 'Penthouse BKC'].map((chip) => (
           <button
             key={chip}
             type="button"
             onClick={() => { setQuery(chip); }}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold bg-black/[0.04] text-slate-500 hover:bg-v-blue/10 hover:text-v-blue border border-transparent hover:border-v-blue/20 transition-all cursor-pointer"
+            className="px-5 py-2.5 rounded-full text-sm font-medium bg-white/80 backdrop-blur-sm text-slate-600 hover:text-v-blue border border-slate-200 shadow-sm hover:shadow hover:border-blue-200 transition-all cursor-pointer"
           >
             {chip}
           </button>
