@@ -55,13 +55,20 @@ export default function AISearchBar() {
   return (
     <div className="w-full max-w-4xl mx-auto md:px-4">
       <form onSubmit={handleSearch} className="relative group w-full">
-        {/* Glowing backdrop effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-v-blue/40 via-blue-400/20 to-v-blue/40 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
+        {/* Animated gradient border on hover/focus */}
+        <div className="absolute -inset-[2px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 -z-10 blur-[1px]"></div>
+        {/* Soft glow behind */}
+        <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/20 via-violet-400/10 to-blue-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-60 group-focus-within:opacity-80 transition-opacity duration-700 -z-20"></div>
 
-        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white/95 backdrop-blur-xl md:rounded-full rounded-[2rem] shadow-2xl border border-white/20 overflow-hidden p-2 gap-2">
-          {/* Sparkle Icon */}
-          <div className="hidden md:flex pl-6 pr-2 items-center text-v-blue">
-            <Sparkles className="w-6 h-6 animate-pulse" />
+        <div className="relative flex flex-col md:flex-row items-stretch md:items-center bg-white backdrop-blur-xl md:rounded-full rounded-[2rem] shadow-xl shadow-black/5 border border-black/[0.04] overflow-hidden p-2 gap-2">
+          {/* Sparkle Icon — pulses on hover */}
+          <div className="hidden md:flex pl-6 pr-2 items-center">
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+              <Sparkles className="w-5 h-5 text-violet-500" />
+            </motion.div>
           </div>
 
           {/* Input field */}
@@ -75,11 +82,13 @@ export default function AISearchBar() {
             />
           </div>
 
-          {/* Search Button */}
-          <button
+          {/* Search Button — gradient with scale micro-interaction */}
+          <motion.button
             type="submit"
             disabled={isSearching}
-            className="w-full md:w-auto bg-v-blue hover:bg-blue-600 text-white px-8 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-blue-500/30"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white px-10 py-5 md:py-4 md:rounded-full rounded-2xl font-bold transition-colors flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-wait shadow-lg shadow-blue-600/25"
           >
             {isSearching ? (
               <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
@@ -89,9 +98,23 @@ export default function AISearchBar() {
               <Search className="w-5 h-5" />
             )}
             <span className="text-base tracking-wide">{isSearching ? 'Analyzing...' : 'Search'}</span>
-          </button>
+          </motion.button>
         </div>
       </form>
+
+      {/* Quick filter pills */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
+        {['3 BHK in Bandra', 'Sea-facing Worli', 'Under ₹2 Cr Powai', 'Penthouse BKC'].map((chip) => (
+          <button
+            key={chip}
+            type="button"
+            onClick={() => { setQuery(chip); }}
+            className="px-4 py-1.5 rounded-full text-xs font-semibold bg-black/[0.04] text-slate-500 hover:bg-v-blue/10 hover:text-v-blue border border-transparent hover:border-v-blue/20 transition-all cursor-pointer"
+          >
+            {chip}
+          </button>
+        ))}
+      </div>
 
       <AnimatePresence>
         {results && !isSearching && (
